@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="./Cópia de Bereia.png" width="600" alt="Banner" />
+  <img src="./assets/Cópia de Bereia.png" width="600" alt="Banner" />
   </p>
 
 >Examine a palavra.
