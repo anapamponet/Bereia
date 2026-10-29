@@ -1,8 +1,9 @@
 
 <p align="center">
-  <img src="./Bereia\Cópia de Bereia.png" width="600" alt="Banner" />
+  <img src="./Bereia/Cópia de Bereia.png" width="600" alt="Banner" />
   </p>
-> **Examine a palavra.**
+  
+>Examine a palavra.
 
 Site de estudo bíblico com foco no contexto histórico de cada livro. Cada livro tem ficha de contexto, explicação capítulo a capítulo com versículos, fontes para consulta, etapas de estudo, anotações e questionário. Um painel mostra o progresso de estudo.
 
