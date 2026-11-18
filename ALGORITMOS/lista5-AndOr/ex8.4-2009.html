@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacinação Prioritária</title>
+</head>
+<body>
+    <h1>Elegibilidade para Vacinação Prioritária</h1>
+
+    <label for="input_idade">Idade:</label>
+    <input type="number" id="input_idade">
+    <br>
+    <label for="select_comorbidade">Possui alguma comorbidade?</label>
+    <select id="select_comorbidade">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+    <br>
+    <label for="select_cadastro">O cadastro no sistema de saúde está em dia?</label>
+    <select id="select_cadastro">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+    <br>
+
+    <button onclick="verificar()">Verificar prioridade</button>
+
+    <script>
+        function verificar() {
+            let idade = Number(input_idade.value)
+            let comorbidade = select_comorbidade.value
+            let cadastro = select_cadastro.value
+            if ((idade >= 60 || comorbidade == 'sim') && cadastro == 'sim') {
+                alert('Vacinação prioritária liberada')
+            } else {
+                alert('Vacinação prioritária não liberada')
+            }
+        }
+    </script>
+</body>
+</html>

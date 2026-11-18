@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Registro de Linhas de Ônibus
+    <br>
+    Nome da linha:
+    <input type="text" id="ipt_linha">
+    <br>
+    <button onclick="gravar()">Gravar busão</button>
+    <div id="div_lista"></div>
+    <br>
+    Pesquisar linha:
+    <input type="text" id="ipt_busca">
+    <br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="div_pesquisa"></div>
+</body>
+</html>
+<script>
+    let linhas = []
+
+    function gravar(){
+        linhas[linhas.length] = ipt_linha.value
+        ipt_linha.value = ''
+
+        div_lista.innerHTML = ''
+        for(let contador = linhas.length - 1; contador >= 0; contador--){
+            div_lista.innerHTML += `${linhas[contador]} <br>`
+        }
+    }
+
+    function pesquisar(){
+        let busca = ipt_busca.value
+        let vezes = 0
+        let indices = ''
+
+        for(let contador = 0; contador < linhas.length; contador++){
+            if(linhas[contador] == busca){
+                if(vezes == 0){
+                    indices += contador
+                } else {
+                    indices += `, ${contador}`
+                }
+                vezes++
+            }
+        }
+
+        if(vezes == 0){
+            div_pesquisa.innerHTML = 'Você nunca pegou essa linha'
+        } else {
+            div_pesquisa.innerHTML = `Você já pegou essa linha ${vezes} vezes, nos índices: ${indices}`
+        }
+    }
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Cadastro de Projetos
+    <br>
+    Nome do projeto:
+    <input type="text" id="ipt_projeto">
+    <br>
+    <button onclick="registrar()">Registrar projeto</button>
+    <button onclick="mostrar()">Mostrar Projetos</button>
+    <div id="div_nivel"></div>
+    <div id="div_lista"></div>
+</body>
+</html>
+<script>
+    let projetos = []
+
+    function registrar(){
+        projetos[projetos.length] = ipt_projeto.value
+        ipt_projeto.value = ''
+
+        let qtd = projetos.length
+        let nivel = ''
+
+        if(qtd <= 4){
+            nivel = 'Júnior'
+        } else if(qtd <= 12){
+            nivel = 'Pleno'
+        } else {
+            nivel = 'Sênior'
+        }
+
+        div_nivel.innerHTML = `Você já fez ${qtd} projetos. Por isso você é um profissional ${nivel}`
+    }
+
+    function mostrar(){
+        div_lista.innerHTML = ''
+        for(let contador = projetos.length - 1; contador >= 0; contador--){
+            div_lista.innerHTML += `${projetos[contador]} <br>`
+        }
+    }
+</script>

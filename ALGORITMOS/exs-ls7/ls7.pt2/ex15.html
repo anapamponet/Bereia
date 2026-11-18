@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira o início do intervalo:
+    <input type="text" id="ipt1">
+    <br>
+    Insira o término do intervalo:
+    <input type="text" id="ipt2">
+    <br>
+    <button onclick="curto()">Curto 3 e 5!</button>
+    <div id="exibir"></div>
+</body>
+</html> </b>
+<script>
+    function curto(){
+        let inicio = Number(ipt1.value);
+        let fim = Number(ipt2.value);
+        let msg = ``
+
+        while (inicio <= fim){
+            if (inicio % 3 == 0 && inicio % 5 == 0 ){
+                msg += `<b style="color: blue;"> É TRI!! É PENTA!!</b> <br>`
+            } else if (inicio % 3 == 0){
+                msg += `<b style="color: blue;"> É TRI!!</b> <br>`
+            } else if (inicio % 5 == 0){
+                msg += `<b style="color: blue;"> É PENTA!!</b> <br>`
+            } else {
+                msg += `${inicio} <br>`
+            }
+            inicio++
+        }
+        exibir.innerHTML = msg
+    }
+</script>

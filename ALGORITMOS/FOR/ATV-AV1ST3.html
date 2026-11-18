@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Os Celtas: Catálogo de Armas <br><br>
+    Nome da arma: <br>
+    <input type="text" id="ipt_nomeArma">
+    <br>
+    <br>
+    Tipo da arma: (Corte, Blindagem, Projéteis e Cerco) <br>
+    <input type="text" id="ipt_tipoArma">
+    <br>
+    <br>
+    Quantidade de Pontos Necessários: <br>
+    <input type="text" id="ipt_qtdPontos">
+    <br>
+    <br>
+    <button onclick="receber()">REGISTRAR</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    function receber(){
+        let n = ipt_nomeArma.value;
+        let t = ipt_tipoArma.value;
+        let q = Number(ipt_qtdPontos.value)
+        let armas = []
+        let tipos = []
+        let qtd = []
+        let nomecerto = prompt('Qual a nova quantidade de pontos dessa arma?')
+        let tipoponto = prompt('Qual o percentual de acréscimo de ponto desse tipo de arma?')
+
+        for (let i = 0; i < 0; i++){
+            if (armas.includes(n)){
+                alert('Insira um nome diferente, as armas não podem ter o mesmo nome')
+        } else if (t != 'corte', t != 'blindagem', t != 'projéteis', t != 'cerco' ){
+            alert('Insira uma arma válida')
+        
+        } else if (q < 0){
+                alert('Insira um valor maior')
+        
+        }
+// ALTERAÇÃO DE ARMA POR NOME
+//         let no = prompt('Qual a nova quantidade de pontos?')
+
+// // ALTERAÇÃO DA ARMA POR TIPO DA ARMA
+//         let ti = prompt('Qual o percentual de acrécimo da quantidade de pontos dessa arma?')
+
+//          for (let cont = 0; cont > armas; cont++){
+// // Não pode haver mais de uma arma com o mesmo nome.
+//         if (armas.includes(n)){ 
+//             alert('Insira uma arma diferente')
+//         } else{
+//             armas.push
+//             div_mensagem.innerHTML += `ARMA ADICIONADA`
+//         }
+// // O "Tipo da Arma" tem que um dos quatro tipos citados acima.    
+//          if (t != 'Corte' || t != 'Blindagem' || t != 'Projéteis' || t != 'Cerco'){
+//             alert('Insira um tipo válido.')
+//         } else{
+//             tipos.push
+            
+//         }
+// // A "Quantidade de Pontos Necessários" não pode ser menor que 0.       
+//         if (q < 0){
+//             alert('Insira mais pontos')
+//         } else{
+//             qtd.push
+//         }
+        // armas.push[]
+        // tipos.push[]
+        // qtd.push[]
+        //armas.length
+        // tipos.length
+        // qtd.length
+        // div_exibir.innerHTML += `${armas}, ${tipos}, ${qtd}`
+
+    }
+    }
+</script>

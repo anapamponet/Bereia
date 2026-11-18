@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Loja Eletrônica Avançada
+    <br>
+    Nome do produto:
+    <input type="text" id="ipt_nome">
+    <br>
+    Preço de compra:
+    <input type="text" id="ipt_preco">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatorio()">Relatório de estoque</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    let nomesProdutos = []
+    let precosProdutos = []
+
+    function cadastrar(){
+        if(ipt_nome.value == '' || ipt_preco.value == ''){
+            alert('Preencha o nome e o preço!')
+        } else {
+            nomesProdutos[nomesProdutos.length] = ipt_nome.value
+            precosProdutos[precosProdutos.length] = Number(ipt_preco.value)
+            ipt_nome.value = ''
+            ipt_preco.value = ''
+        }
+    }
+
+    function relatorio(){
+        if(nomesProdutos.length == 0){
+            div_exibir.innerHTML = 'Nenhum produto cadastrado.'
+        } else {
+            div_exibir.innerHTML = `Total de produtos: ${nomesProdutos.length} <br>`
+
+            let indiceMaior = 0
+            let indiceMenor = 0
+            let somaCompra = 0
+            let somaVenda = 0
+
+            for(let contador = 0; contador < nomesProdutos.length; contador++){
+                let compra = precosProdutos[contador]
+                let venda = compra * 1.25
+
+                div_exibir.innerHTML += `Produto ${contador + 1}: ${nomesProdutos[contador]} <br>`
+                div_exibir.innerHTML += `Preço de compra: R$${compra}. Vender por R$${venda} <br>`
+
+                if(compra > precosProdutos[indiceMaior]){
+                    indiceMaior = contador
+                }
+                if(compra < precosProdutos[indiceMenor]){
+                    indiceMenor = contador
+                }
+
+                somaCompra += compra
+                somaVenda += venda
+            }
+
+            let mediaVenda = somaVenda / nomesProdutos.length
+
+            div_exibir.innerHTML += `<br>Produto mais caro: ${nomesProdutos[indiceMaior]} <br>`
+            div_exibir.innerHTML += `Produto mais barato: ${nomesProdutos[indiceMenor]} <br>`
+            div_exibir.innerHTML += `Soma dos preços de compra: R$${somaCompra} <br>`
+            div_exibir.innerHTML += `Média de preço de venda: R$${mediaVenda}`
+        }
+    }
+</script>

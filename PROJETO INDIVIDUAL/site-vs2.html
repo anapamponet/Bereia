@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bereia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,500&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;background:#FBF7F4;color:#3B2F2F;font:17px/1.6 Nunito,system-ui,sans-serif">
+    <header style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding:24px 56px">
+        <img src="Bereia (1).png" alt="Logo da Beréia" width="120" style="height: auto; max-width: 100%; object-fit: contain;">
+        <nav id="div_menu_visitante" style="display:flex;gap:28px;flex-wrap:wrap;align-items:center">
+            <button style="background:none;border:0;font:600 17px Nunito,sans-serif;color:#7c2a0d;cursor:pointer;padding:8px 0" onclick="mostrarTela('inicio')">Início</button>
+            <button style="background:none;border:0;font:600 17px Nunito,sans-serif;color:#7c2a0d;cursor:pointer;padding:8px 0" onclick="mostrarSobre()">Sobre nós</button>
+            <button style="background:none;border:0;font:600 17px Nunito,sans-serif;color:#7c2a0d;cursor:pointer;padding:8px 0" onclick="mostrarTela('acesso')">Entrar</button>
+        </nav>
+        <nav id="div_menu_usuario" style="display:none;gap:28px;flex-wrap:wrap;align-items:center">
+            <button style="background:none;border:0;font:600 17px Nunito,sans-serif;color:#7c2a0d;cursor:pointer;padding:8px 0" onclick="mostrarTela('home')">Home</button>
+            <button style="background:none;border:0;font:600 17px Nunito,sans-serif;color:#7c2a0d;cursor:pointer;padding:8px 0" onclick="mostrarTela('biblia')">Organização da Bíblia</button>
+            <button style="background:none;border:0;font:600 17px Nunito,sans-serif;color:#7c2a0d;cursor:pointer;padding:8px 0" onclick="mostrarTela('dash')">Meu progresso</button>
+            <button style="background:none;border:0;font:600 17px Nunito,sans-serif;color:#7c2a0d;cursor:pointer;padding:8px 0" onclick="mostrarTela('notas')">Minhas anotações</button>
+            <span style="color:#6B5B5B;padding:8px 0">Olá, <span id="spn_usuario"></span></span>
+            <button style="background:none;border:0;font:600 17px Nunito,sans-serif;color:#7c2a0d;cursor:pointer;padding:8px 0" onclick="sair()">Sair</button>
+        </nav>
+    </header>
+
+    <main style="max-width:1100px;margin:0 auto;padding:24px 24px 64px">
+        <!-- TELA: INÍCIO -->
+        <div id="div_inicio">
+            <section style="padding:112px 24px;margin-bottom:56px;text-align:center;border-radius:24px;overflow:hidden;color:#fff;background-image:linear-gradient(rgba(40,15,5,.65),rgba(40,15,5,.65)),url('iniciositejpg.jpg');background-size:cover;background-position:center 45%">
+                <h1 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(40px,8vw,64px);line-height:1.1;margin:0 0 16px">Examine a palavra</h1>
+                <p style="font-size:20px;max-width:640px;margin:0 auto 28px">Estude cada livro da Bíblia a partir do mundo em que ele foi escrito: quem escreveu, para quem, quando e em que cenário.</p>
+                <p style="margin:0"><button style="display:inline-block;background:#fff;color:#7c2a0d;border:2px solid #fff;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer" onclick="mostrarTela('acesso')">CRIAR CONTA</button> <button style="display:inline-block;background:transparent;color:#fff;border:2px solid #fff;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer" onclick="mostrarTela('acesso')">ENTRAR</button></p>
+            </section>
+
+            <section id="div_sobre" style="margin-bottom:56px">
+                <h2 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:32px;line-height:1.15;margin:0 0 12px">Sobre nós</h2>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:20px">
+                    <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Quem somos</h3><p style="margin:0">O Bereia é um projeto de estudo bíblico para quem quer ler a Bíblia com mais compreensão.</p></div>
+                    <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">De onde vem o nome</h3><p style="margin:0">Em Atos 17:11, os moradores de Beréia, cidade da Macedônia, são elogiados por examinarem as Escrituras todos os dias para conferir se o que ouviam era verdade. Daí o nosso lema.</p></div>
+                    <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Nossa missão</h3><p style="margin:0">Ajudar você a ler cada livro conhecendo o contexto histórico em que ele foi escrito, acompanhar o seu progresso e fixar o que aprendeu com questionários e anotações.</p></div>
+                </div>
+                <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px">
+                    <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">O que você encontra aqui</h3>
+                    <div style="padding:12px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Livros com contexto:</strong> ficha de cada livro, cenários e explicação capítulo a capítulo, com versículos.</div><div style="padding:12px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Organização da Bíblia:</strong> como os livros se agrupam e curiosidades sobre o texto.</div><div style="padding:12px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Questionários:</strong> perguntas para revisar o que você leu.</div><div style="padding:12px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Anotações e progresso:</strong> tudo o que você escreve e estuda fica guardado na sua conta.</div>
+                </div>
+            </section>
+        </div>
+
+        <!-- TELA: ACESSO -->
+        <div id="div_acesso" style="display:none">
+            <h1 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:48px;line-height:1.15;margin:0 0 12px">Entre ou crie sua conta</h1>
+            <p style="color:#6B5B5B;font-size:20px;margin-bottom:28px">Seu progresso e suas anotações ficam guardados na sua conta.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start;max-width:900px">
+                <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px">
+                    <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Entrar</h3>
+                    <label for="ipt_login_email" style="font-weight:600">E-mail</label>
+                    <input type="email" id="ipt_login_email" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px">
+                    <label for="ipt_login_senha" style="font-weight:600">Senha</label>
+                    <input type="password" id="ipt_login_senha" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px" onkeydown="if (event.key == 'Enter') entrarConta()">
+                    <p id="div_erro_login" role="alert" style="color:#7A3045;font-weight:600;min-height:24px;margin:0 0 12px"></p>
+                    <button style="display:inline-block;background:#7c2a0d;color:#fff;border:0;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer" onclick="entrarConta()">ENTRAR</button>
+                </div>
+                <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px">
+                    <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Criar conta</h3>
+                    <label for="ipt_cad_nome" style="font-weight:600">Nome</label>
+                    <input type="text" id="ipt_cad_nome" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px">
+                    <label for="ipt_cad_email" style="font-weight:600">E-mail</label>
+                    <input type="email" id="ipt_cad_email" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px">
+                    <label for="ipt_cad_senha" style="font-weight:600">Senha (mínimo 6 caracteres)</label>
+                    <input type="password" id="ipt_cad_senha" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px">
+                    <label for="ipt_cad_confirma" style="font-weight:600">Confirmar senha</label>
+                    <input type="password" id="ipt_cad_confirma" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px" onkeydown="if (event.key == 'Enter') cadastrar()">
+                    <p id="div_erro_cad" role="alert" style="color:#7A3045;font-weight:600;min-height:24px;margin:0 0 12px"></p>
+                    <button style="display:inline-block;background:#7c2a0d;color:#fff;border:0;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer" onclick="cadastrar()">CRIAR CONTA</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA: HOME -->
+        <div id="div_home" style="display:none">
+            <section style="padding-top:24px;margin-bottom:56px">
+                <h1 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:48px;line-height:1.15;margin:0 0 12px">Oi, que bom que você chegou.</h1>
+                <p style="font-size:20px;max-width:640px">Aqui você estuda cada livro da Bíblia a partir do mundo em que ele foi escrito: quem escreveu, para quem, quando e em que cenário.</p>
+            </section>
+
+            <section style="margin-bottom:56px">
+                <div style="background:#E4ECE1;border-radius:24px;padding:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
+                    <div><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Minhas anotações</h3><p style="margin:0">Você tem <strong id="spn_qtd_notas">0</strong> anotações guardadas.</p></div>
+                    <button style="display:inline-block;background:#7c2a0d;color:#fff;border:0;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer" onclick="mostrarTela('notas')">ABRIR ANOTAÇÕES</button>
+                </div>
+            </section>
+
+            <section style="margin-bottom:56px">
+                <h2 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:32px;line-height:1.15;margin:0 0 12px">Livros para começar</h2>
+                <div id="div_livros" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px"></div>
+            </section>
+
+        </div>
+
+        <!-- TELA: ORGANIZAÇÃO DA BÍBLIA -->
+        <div id="div_biblia" style="display:none">
+            <h1 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:48px;line-height:1.15;margin:0 0 12px">A organização da Bíblia</h1>
+            <p style="color:#6B5B5B;font-size:20px;max-width:760px;margin-bottom:28px">A Bíblia não é um livro só: é uma biblioteca de 66 livros (na tradição protestante), escritos em épocas, lugares e gêneros diferentes. Saber como ela está organizada ajuda a entender o que esperar de cada livro.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:24px"><div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><div style="color:#6B5B5B">Livros no total</div><div style="font:44px/1.2 Lora,Georgia,serif">66</div></div><div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><div style="color:#6B5B5B">Antigo Testamento</div><div style="font:44px/1.2 Lora,Georgia,serif">39</div></div><div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><div style="color:#6B5B5B">Novo Testamento</div><div style="font:44px/1.2 Lora,Georgia,serif">27</div></div><div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><div style="color:#6B5B5B">Idiomas originais</div><div style="font:44px/1.2 Lora,Georgia,serif">3</div></div></div>
+            <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px;margin-bottom:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Antigo Testamento</h3><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Pentateuco</strong> <span style="color:#6B5B5B">· 5 livros</span><br><span>Gênesis, Êxodo, Levítico, Números, Deuteronômio</span><p style="margin:4px 0 0;color:#6B5B5B">As origens do mundo e de Israel, a saída do Egito e a Lei. A tradição atribui os cinco livros a Moisés. Em hebraico, esse bloco é a Torá, que significa instrução.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Livros históricos</strong> <span style="color:#6B5B5B">· 12 livros</span><br><span>Josué a Ester</span><p style="margin:4px 0 0;color:#6B5B5B">A entrada em Canaã, o período dos juízes, os reis de Israel e Judá, o exílio e a volta à terra.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Poéticos e de sabedoria</strong> <span style="color:#6B5B5B">· 5 livros</span><br><span>Jó, Salmos, Provérbios, Eclesiastes, Cantares</span><p style="margin:4px 0 0;color:#6B5B5B">Orações, cantos e reflexões sobre a vida, o sofrimento e a sabedoria.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Profetas maiores</strong> <span style="color:#6B5B5B">· 5 livros</span><br><span>Isaías, Jeremias, Lamentações, Ezequiel, Daniel</span><p style="margin:4px 0 0;color:#6B5B5B">Chamados de maiores pela extensão dos livros, e não por importância.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Profetas menores</strong> <span style="color:#6B5B5B">· 12 livros</span><br><span>Oseias a Malaquias</span><p style="margin:4px 0 0;color:#6B5B5B">Livros mais curtos, escritos antes, durante e depois do exílio, que chamam o povo de volta a Deus.</p></div></div>
+            <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px;margin-bottom:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Novo Testamento</h3><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Evangelhos</strong> <span style="color:#6B5B5B">· 4 livros</span><br><span>Mateus, Marcos, Lucas, João</span><p style="margin:4px 0 0;color:#6B5B5B">Quatro relatos da vida, morte e ressurreição de Jesus. Evangelho significa boa notícia.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Histórico</strong> <span style="color:#6B5B5B">· 1 livro</span><br><span>Atos</span><p style="margin:4px 0 0;color:#6B5B5B">A expansão da igreja de Jerusalém até Roma.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Cartas de Paulo</strong> <span style="color:#6B5B5B">· 13 livros</span><br><span>Romanos a Filemom</span><p style="margin:4px 0 0;color:#6B5B5B">Cartas a igrejas e a pessoas, escritas para situações concretas de cada comunidade.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Cartas gerais</strong> <span style="color:#6B5B5B">· 8 livros</span><br><span>Hebreus, Tiago, 1 e 2 Pedro, 1, 2 e 3 João, Judas</span><p style="margin:4px 0 0;color:#6B5B5B">Cartas dirigidas a grupos mais amplos de cristãos.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Profético</strong> <span style="color:#6B5B5B">· 1 livro</span><br><span>Apocalipse</span><p style="margin:4px 0 0;color:#6B5B5B">Visões escritas a igrejas que enfrentavam pressão e perseguição.</p></div></div>
+            <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px;margin-bottom:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Como a Bíblia hebraica organiza os livros</h3><p style="margin:0">Na Bíblia hebraica, os mesmos livros do Antigo Testamento ficam em três partes: Torá (a Lei, os cinco primeiros livros), Neviim (os Profetas) e Ketuvim (os Escritos, como Salmos e Provérbios). O nome Tanakh vem das iniciais dessas três partes. Os livros são contados como 24 porque cada um destes vira um só: os Doze profetas menores, 1 e 2 Samuel, 1 e 2 Reis, 1 e 2 Crônicas e Esdras com Neemias.</p></div>
+            <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Curiosidades</h3><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Capítulos e versículos não são originais</strong><p style="margin:4px 0 0;color:#6B5B5B">Os textos foram escritos sem essa numeração. Os capítulos surgiram na Idade Média (atribuídos a Stephen Langton, século XIII) e os versículos, no século XVI.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Como ler uma referência</strong><p style="margin:4px 0 0;color:#6B5B5B">Jo 3:16 quer dizer livro de João, capítulo 3, versículo 16. Um intervalo como Rm 8:38–39 abrange do versículo 38 ao 39.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">A ordem dos livros não é cronológica</strong><p style="margin:4px 0 0;color:#6B5B5B">As cartas de Paulo seguem aproximadamente a ordem de tamanho, e Romanos vem primeiro por ser a maior, e não a mais antiga.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Nem toda tradição tem os mesmos livros</strong><p style="margin:4px 0 0;color:#6B5B5B">As Bíblias protestantes têm 66 livros, a católica tem 73 (com os deuterocanônicos) e as igrejas ortodoxas incluem ainda outros textos.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Três idiomas originais</strong><p style="margin:4px 0 0;color:#6B5B5B">O Antigo Testamento foi escrito em hebraico, com trechos em aramaico (como em Daniel e Esdras), e o Novo Testamento em grego.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Os quatrocentos anos entre os testamentos</strong><p style="margin:4px 0 0;color:#6B5B5B">Entre Malaquias e Mateus há um intervalo de cerca de quatrocentos anos. Nele surgiu a Septuaginta, a tradução do Antigo Testamento para o grego, muito usada pelos autores do Novo Testamento.</p></div><div style="padding:14px 0;border-top:1px solid #EADFD8"><strong style="color:#7c2a0d">Recordes curiosos</strong><p style="margin:4px 0 0;color:#6B5B5B">O Salmo 119 é o maior capítulo (176 versículos) e o Salmo 117, o menor (2 versículos). O livro de Ester não menciona o nome de Deus.</p></div></div>
+        </div>
+
+        <!-- TELA: MINHAS ANOTAÇÕES -->
+        <div id="div_notas" style="display:none">
+            <h1 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:48px;line-height:1.15;margin:0 0 12px">Minhas anotações</h1>
+            <p style="color:#6B5B5B;font-size:20px;margin-bottom:28px">Todas as anotações que você fez nos livros ficam guardadas aqui.</p>
+            <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px;margin-bottom:24px;max-width:420px">
+                <label for="ipt_filtro" style="font-weight:600">Filtrar por livro</label>
+                <select id="ipt_filtro" onchange="mostrarNotas()" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px;margin-bottom:0"></select>
+            </div>
+            <div id="div_lista_notas"></div>
+        </div>
+
+        <!-- TELA: LIVRO -->
+        <div id="div_livro" style="display:none">
+            <p><button style="display:inline-block;background:#fff;color:#7c2a0d;border:1px solid #7c2a0d;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer" onclick="mostrarTela('home')">VOLTAR</button></p>
+            <h1 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:48px;line-height:1.15;margin:0 0 12px"><span id="spn_nome"></span></h1>
+            <p style="color:#6B5B5B;font-size:20px;margin-bottom:32px"><span id="spn_resumo"></span></p>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:start;gap:28px">
+                <div style="display:flex;flex-direction:column;gap:20px">
+                    <div style="background:#E4ECE1;border-radius:24px;padding:24px">
+                        <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Ficha do livro</h3>
+                        <div id="div_ficha" style="display:grid;grid-template-columns:auto 1fr;gap:8px 24px"></div>
+                    </div>
+                    <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Cenário político</h3><p style="color:#6B5B5B;margin:0" id="spn_politico"></p></div>
+                    <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Cenário cultural e religioso</h3><p style="color:#6B5B5B;margin:0" id="spn_cultural"></p></div>
+                    <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Por que foi escrito</h3><p style="color:#6B5B5B;margin:0" id="spn_motivo"></p></div>
+                </div>
+
+                <div style="display:flex;flex-direction:column;gap:20px">
+                    <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px">
+                        <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Etapas de estudo</h3><strong id="spn_porcentagem"></strong></div>
+                        <div style="height:10px;background:#F4E1E4;border-radius:999px;overflow:hidden"><i id="div_barra" style="display:block;height:100%;background:#7c2a0d;width:0%"></i></div>
+                        <div id="div_etapas" style="margin-top:12px"></div>
+                        <p><button style="display:inline-block;background:#7c2a0d;color:#fff;border:0;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer" onclick="iniciarQuiz()">FAZER O QUESTIONÁRIO</button></p>
+                    </div>
+
+                    <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px">
+                        <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Minhas anotações</h3>
+                        <label for="ipt_titulo" style="font-weight:600">Título</label>
+                        <input type="text" id="ipt_titulo" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px">
+                        <label for="ipt_texto" style="font-weight:600">Anotação</label>
+                        <textarea id="ipt_texto" rows="4" style="width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px"></textarea>
+                        <p style="color:#6B5B5B" id="div_erro" role="alert"></p>
+                        <button style="display:inline-block;background:#7c2a0d;color:#fff;border:0;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer" onclick="salvarAnotacao()">SALVAR ANOTAÇÃO</button>
+                    </div>
+                    <div id="div_anotacoes"></div>
+                </div>
+            </div>
+        <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px;margin-top:28px"><h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Capítulo a capítulo</h3><div id="div_capitulos"></div></div>
+        </div>
+
+        <!-- TELA: QUESTIONÁRIO -->
+        <div id="div_quiz" style="display:none">
+            <h1 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:48px;line-height:1.15;margin:0 0 12px">Questionário</h1>
+            <p style="color:#6B5B5B;font-size:20px;margin-bottom:28px"><span id="spn_nome_quiz"></span>: Revise o que você aprendeu na leitura.</p>
+            <div id="div_quiz_tela" style="max-width:760px"></div>
+        </div>
+
+        <!-- TELA: DASHBOARD -->
+        <div id="div_dash" style="display:none">
+            <h1 style="font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:48px;line-height:1.15;margin:0 0 12px">Meu progresso</h1>
+            <p style="color:#6B5B5B;font-size:20px;margin-bottom:28px">Veja como está o seu estudo, livro por livro.</p>
+
+            <div id="div_cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-bottom:24px"></div>
+
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-bottom:24px">
+                <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px">
+                    <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Estudos por semana</h3>
+                    <div id="div_semanas" style="display:flex;align-items:flex-end;gap:14px;height:170px"></div>
+                    <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;color:#6B5B5B;font-size:14px"><span>Há 4 semanas</span><span>Esta semana</span></div>
+                </div>
+                <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px">
+                    <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Últimos 14 dias</h3>
+                    <div id="div_dias" style="display:grid;grid-template-columns:repeat(7,1fr);gap:10px"></div>
+                    <p style="color:#6B5B5B;font-size:15px">Os dias em vinho têm estudo registrado.</p>
+                </div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px;margin-bottom:24px">
+                <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Progresso por livro</h3>
+                <div id="div_progresso_livros"></div>
+            </div>
+
+            <div style="background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px">
+                <h3 style="font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px">Últimos questionários</h3>
+                <div id="div_tentativas"></div>
+            </div>
+        </div>
+    </main>
+    <footer style="text-align:center;padding:32px;border-top:1px solid #EADFD8;color:#6B5B5B;font-size:15px">© 2026 Bereia · projeto acadêmico</footer>
+</body>
+</html>
+<script>
+    let estiloCard = "background:#fff;border:1px solid #EADFD8;border-radius:24px;padding:24px"
+    let estiloSage = "background:#E4ECE1;border-radius:24px;padding:24px"
+    let estiloRose = "background:#F4E1E4;border-radius:24px;padding:24px"
+    let estiloBtn = "display:inline-block;background:#7c2a0d;color:#fff;border:0;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer"
+    let estiloBtnAlt = "display:inline-block;background:#fff;color:#7c2a0d;border:1px solid #7c2a0d;border-radius:999px;padding:12px 28px;font:700 16px Nunito,sans-serif;min-height:44px;cursor:pointer"
+    let estiloBarra = "height:10px;background:#F4E1E4;border-radius:999px;overflow:hidden"
+    let estiloBarraDentro = "display:block;height:100%;background:#7c2a0d"
+    let estiloLinha = "display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center"
+    let estiloMuted = "color:#6B5B5B"
+    let estiloH1 = "font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:48px;line-height:1.15;margin:0 0 12px"
+    let estiloH2 = "font-family:Lora,Georgia,serif;font-style:italic;font-weight:500;font-size:32px;line-height:1.15;margin:0 0 12px"
+    let estiloH3 = "font-family:Lora,Georgia,serif;font-weight:500;font-size:24px;line-height:1.15;margin:0 0 12px"
+    let estiloInput = "width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid #CDBFB6;border-radius:12px;font:16px Nunito,sans-serif;margin:6px 0 14px"
+    let estiloGrade = "display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px"
+    let estiloFaixa = "display:block;height:8px;background:#7c2a0d;border-radius:999px;margin-bottom:10px"
+    let estiloNav = "background:none;border:0;font:600 17px Nunito,sans-serif;color:#3B2F2F;cursor:pointer;padding:8px 0"
+    let estiloLink = "color:#3B2F2F;text-decoration:none"
+    let estiloEtapa = "display:flex;gap:14px;padding:14px 0;border-top:1px solid #EADFD8"
+    let estiloCheck = "width:22px;height:22px;accent-color:#7c2a0d;margin-top:4px"
+    let estiloOpcao = "display:flex;gap:14px;align-items:center;padding:16px 20px;border:2px solid #CDBFB6;border-radius:16px;margin-bottom:12px;cursor:pointer;background:#fff"
+    let estiloTagOk = "background:#E4ECE1;color:#2F5D3A;padding:2px 12px;border-radius:999px;font-size:14px;font-weight:700"
+    let estiloTagNo = "background:#F4E1E4;color:#7A3045;padding:2px 12px;border-radius:999px;font-size:14px;font-weight:700"
+    let estiloGrande = "font:44px/1.2 Lora,Georgia,serif"
+    let estiloLivro = "display:block;background:#7c2a0d;color:#fff;text-decoration:none;border-radius:24px;padding:24px"
+    let estiloBarraClara = "height:10px;background:rgba(255,255,255,.3);border-radius:999px;overflow:hidden"
+
+    let etapas = ["Contexto", "Capítulos", "Resumo", "Revisão"]
+
+    // conteúdo
+    let livros = [
+        {
+            nome: "Gênesis", testamento: "Antigo Testamento",
+            resumo: "as origens e as promessas aos patriarcas.",
+            autor: "Moisés (segundo a tradição)", epoca: "[preencher]", local: "[preencher]",
+            destinatarios: "Israel", genero: "narrativa",
+            politico: "[texto sobre o cenário político]",
+            cultural: "[texto sobre o cenário cultural e religioso]",
+            motivo: "[texto sobre o motivo do livro]",
+            capitulos: [
+                {titulo: "Capítulos 1 a 11 · As origens", texto: "Gn 1 e 2 apresentam a criação do mundo e do ser humano (1:27; 2:7). Gn 3 narra a queda, e Gn 4 mostra suas consequências em Caim e Abel. O dilúvio (6 a 9) termina com a aliança do arco (9:13), e Babel (11:1-9) explica a dispersão dos povos. Contexto: povos vizinhos da Mesopotâmia também tinham relatos de criação e de dilúvio. O texto bíblico apresenta um só Deus criador, e não vários deuses em disputa."},
+                {titulo: "Capítulos 12 a 25 · Abraão e Isaque", texto: "Deus chama Abraão a deixar sua terra e promete fazer dele uma grande nação (12:1-3). A fé de Abraão é reconhecida em 15:6, a aliança é selada no cap. 17 e o teste do sacrifício de Isaque está em 22:1-19. Contexto: Abraão vem de Ur, na Mesopotâmia (11:31), e vive como nômade em Canaã, por volta do início do segundo milênio a.C., segundo a cronologia mais comum."},
+                {titulo: "Capítulos 25 a 36 · Jacó", texto: "Jacó compra a primogenitura de Esaú (25:29-34) e recebe a bênção do pai (cap. 27). Em Betel ele sonha com uma escada entre o céu e a terra (28:12-15) e, depois de lutar com Deus, recebe o nome Israel (32:28). A reconciliação com Esaú vem no cap. 33. Contexto: as famílias vivem entre Canaã e a região de Harã, e a primogenitura e a bênção tinham grande peso familiar e legal."},
+                {titulo: "Capítulos 37 a 50 · José e o Egito", texto: "José é vendido pelos irmãos (37:28), acusado injustamente (cap. 39) e sobe ao poder ao interpretar os sonhos do faraó (cap. 41). A fome leva seus irmãos ao Egito (42 a 45) e a família se instala em Gósen (47:27). Em 50:20, José diz que o mal planejado contra ele foi transformado em bem. Contexto: o Egito recebia estrangeiros em tempos de fome, como já ocorrera com Abraão (12:10), e isso prepara o cenário da escravidão narrada em Êxodo."}
+            ],
+            perguntas: [
+                {texto: "Segundo a tradição, quem é o autor de Gênesis?", opcoes: ["Moisés", "Paulo", "Davi", "Lucas"], certa: 0},
+                {texto: "Gênesis faz parte de qual testamento?", opcoes: ["Novo", "Antigo"], certa: 1}
+            ]
+        },
+        {
+            nome: "Êxodo", testamento: "Antigo Testamento",
+            resumo: "a libertação do Egito e a aliança no Sinai.",
+            autor: "Moisés (segundo a tradição)", epoca: "tradicionalmente entre os séculos XV e XIII a.C. (a data é debatida)", local: "deserto do Sinai (segundo a tradição)",
+            destinatarios: "Israel", genero: "narrativa e lei",
+            politico: "O Egito era uma potência regional governada por faraós, que usavam trabalho forçado em grandes construções (1:11).",
+            cultural: "A cultura egípcia tinha muitos deuses e o faraó era visto como divino. As pragas confrontam essa ideia (12:12).",
+            motivo: "Mostrar como Deus libertou seu povo da escravidão e formou uma nação por meio da aliança.",
+            capitulos: [
+                {titulo: "Capítulos 1 a 4 · Opressão e chamado", texto: "O povo hebreu é oprimido no Egito (1:8-14), e Moisés escapa da morte quando bebê (2:1-10). Na sarça ardente, Deus revela seu nome e o chama para libertar o povo (3:1-15). Moisés apresenta objeções, e Arão é designado para ajudá-lo (4:10-16). Contexto: o novo rei que não conhecia José (1:8) indica uma mudança política, e Moisés, criado na corte, passa a viver como pastor em Midiã."},
+                {titulo: "Capítulos 5 a 15 · Pragas e saída", texto: "Moisés pede ao faraó que deixe o povo partir (5:1-2), e as pragas se sucedem (caps. 7 a 11). A Páscoa é instituída na noite da libertação (12:1-14), e o povo atravessa o mar (14:21-31). Contexto: as pragas atingem elementos centrais da vida egípcia, como o Nilo (7:20), e a Páscoa continua sendo celebrada pelos judeus como memória dessa saída."},
+                {titulo: "Capítulos 16 a 24 · Deserto e Sinai", texto: "Deus sustenta o povo com maná (cap. 16) e água da rocha (17:1-7). Jetro aconselha Moisés a nomear juízes (cap. 18), e no Sinai são dados os Dez Mandamentos (20:1-17) e selada a aliança (24:3-8). Contexto: a lei é dada a um povo recém-libertado, e o formato da aliança lembra tratados do Oriente Médio antigo entre um rei e seus súditos."},
+                {titulo: "Capítulos 25 a 40 · Tabernáculo e bezerro de ouro", texto: "Deus dá instruções para o tabernáculo (caps. 25 a 31). Enquanto Moisés está no monte, o povo faz um bezerro de ouro (32:1-6), e Moisés intercede por ele (32:11-14). O livro termina com a glória de Deus enchendo o tabernáculo (40:34-38). Contexto: o tabernáculo era uma tenda móvel, adequada a um povo em marcha pelo deserto."}
+            ],
+            perguntas: [
+                {texto: "Qual festa lembra a noite da libertação do Egito?", opcoes: ["Pentecostes", "Páscoa", "Festa das Cabanas"], certa: 1},
+                {texto: "Em que monte Moisés recebeu os Dez Mandamentos?", opcoes: ["Sinai", "Carmelo", "Sião", "Tabor"], certa: 0}
+            ]
+        },
+        {
+            nome: "Daniel", testamento: "Antigo Testamento",
+            resumo: "fé em meio ao exílio na Babilônia.",
+            autor: "Daniel (segundo a tradição)", epoca: "[preencher]", local: "Babilônia",
+            destinatarios: "Israelitas no exílio", genero: "profecia e narrativa",
+            politico: "[texto sobre o cenário político]",
+            cultural: "[texto sobre o cenário cultural e religioso]",
+            motivo: "[texto sobre o motivo do livro]",
+            capitulos: [
+                {titulo: "Capítulos 1 a 3 · Fidelidade no exílio", texto: "Jovens judeus são levados para a Babilônia (1:1-4) e Daniel recusa a comida do rei (1:8-16). No cap. 2, ele interpreta o sonho da grande estátua (2:31-45) e, no cap. 3, seus três amigos resistem à fornalha (3:16-18). Contexto: a deportação ocorre por volta de 605 a.C., sob Nabucodonosor, e jovens de famílias nobres eram treinados na língua e na cultura babilônica para servir na corte."},
+                {titulo: "Capítulos 4 a 6 · Reis e reinos", texto: "Nabucodonosor é humilhado e depois reconhece o Deus do céu (4:34-37). No cap. 5, uma mão escreve na parede durante o banquete de Belsazar (5:25-28). No cap. 6, Daniel é lançado na cova dos leões por continuar orando (6:10 e 6:22). Contexto: a Babilônia caiu diante de Ciro, rei da Pérsia, em 539 a.C., e o livro acompanha a passagem do poder de um império para outro."},
+                {titulo: "Capítulos 7 a 9 · Visões e profecias", texto: "O cap. 7 descreve quatro feras e a visão de alguém como filho de homem recebendo domínio eterno (7:13-14). O cap. 8 traz um carneiro e um bode, e o cap. 9 registra a oração de Daniel (9:3-19) e a profecia das setenta semanas (9:24-27). Contexto: o texto usa imagens apocalípticas, e estudiosos debatem se os impérios representados são Babilônia, Média-Pérsia, Grécia e Roma ou se o foco está na época de Antíoco IV, no século II a.C."},
+                {titulo: "Capítulos 10 a 12 · A visão final", texto: "Daniel recebe uma longa visão sobre conflitos entre reinos (caps. 10 e 11) e a promessa de que muitos que dormem no pó despertarão (12:2). Em 12:13 ele é animado a seguir até o fim. Contexto: o livro foi escrito em hebraico e aramaico (o aramaico vai de 2:4 a 7:28), e a data de composição é debatida: tradicionalmente no século VI a.C., e para muitos estudiosos no século II a.C."}
+            ],
+            perguntas: [
+                {texto: "Em que cidade se passa grande parte de Daniel?", opcoes: ["Roma", "Babilônia", "Corinto", "Antioquia"], certa: 1},
+                {texto: "Daniel faz parte de qual testamento?", opcoes: ["Antigo", "Novo"], certa: 0}
+            ]
+        },
+        {
+            nome: "Mateus", testamento: "Novo Testamento",
+            resumo: "Jesus como o Messias prometido a Israel.",
+            autor: "Mateus, um dos doze (segundo a tradição)", epoca: "século I d.C.", local: "não se sabe ao certo (a tradição sugere a região da Síria)",
+            destinatarios: "Cristãos de origem judaica", genero: "evangelho",
+            politico: "A Palestina estava sob domínio romano, com governantes locais como Herodes, o Grande (2:1), e a esperança de um Messias libertador era forte.",
+            cultural: "Os judeus se dividiam em grupos como fariseus e saduceus, e a Lei e os Profetas moldavam a vida religiosa. Mateus cita o Antigo Testamento com frequência para mostrar que Jesus cumpre as promessas (1:22).",
+            motivo: "Mostrar que Jesus é o Messias esperado, descendente de Abraão e de Davi (1:1), e ensinar os discípulos.",
+            capitulos: [
+                {titulo: "Capítulos 1 a 4 · Nascimento e início", texto: "O livro abre com a genealogia de Jesus (1:1-17) e narra seu nascimento em Belém (2:1), a fuga para o Egito (2:13-15), o batismo (3:13-17) e a tentação no deserto (4:1-11). Contexto: Herodes, o Grande, governava a Judeia como rei aliado de Roma, e a genealogia liga Jesus a Abraão e a Davi, figuras centrais para os judeus."},
+                {titulo: "Capítulos 5 a 7 · Sermão do Monte", texto: "Jesus ensina as bem-aventuranças (5:3-12), fala de ser sal e luz (5:13-16), ensina a orar (6:9-13), resume a lei na regra de ouro (7:12) e conta a parábola das duas casas (7:24-27). Contexto: o ensino acontece na Galileia, e em 5:21-48 Jesus contrapõe interpretações comuns da lei ao seu sentido mais profundo."},
+                {titulo: "Capítulos 8 a 20 · Milagres, parábolas e ensino", texto: "Entre curas e milagres (caps. 8 e 9), Jesus envia os doze (cap. 10), conta parábolas do reino (cap. 13) e ouve a confissão de Pedro (16:13-20). A transfiguração vem em 17:1-8. Contexto: a Galileia era uma região de população mista sob Herodes Antipas, e Cesareia de Filipe (16:13) ficava ao norte, longe de Jerusalém."},
+                {titulo: "Capítulos 21 a 28 · Jerusalém, cruz e ressurreição", texto: "Jesus entra em Jerusalém (21:1-11), fala sobre o futuro (cap. 24), celebra a última ceia (26:26-29), é crucificado (27:32-56) e ressuscita (28:1-10). O livro termina com a grande comissão (28:18-20). Contexto: tudo ocorre perto da Páscoa, e a crucificação era uma punição romana aplicada sob o governador Pôncio Pilatos (27:2)."}
+            ],
+            perguntas: [
+                {texto: "Qual rei governava a Judeia quando Jesus nasceu, segundo Mateus 2?", opcoes: ["Herodes", "Davi", "Tibério", "Pilatos"], certa: 0},
+                {texto: "Em quais capítulos está o Sermão do Monte?", opcoes: ["1 a 4", "5 a 7", "13", "26"], certa: 1},
+                {texto: "Com o que começa o evangelho de Mateus?", opcoes: ["A genealogia de Jesus", "O batismo de Jesus", "O prólogo sobre a Palavra"], certa: 0}
+            ]
+        },
+        {
+            nome: "Marcos", testamento: "Novo Testamento",
+            resumo: "o evangelho mais curto, com ritmo rápido e foco na ação de Jesus.",
+            autor: "João Marcos, ligado a Pedro (segundo a tradição)", epoca: "século I d.C., provavelmente entre os anos 50 e 70", local: "Roma (segundo a tradição)",
+            destinatarios: "Cristãos de origem não judaica", genero: "evangelho",
+            politico: "O império romano dominava a região. Segundo a tradição, o livro foi escrito em Roma, onde os cristãos sofreram perseguição sob Nero, em 64 d.C.",
+            cultural: "Marcos explica costumes judaicos (7:3-4) e traduz expressões aramaicas (5:41; 15:34), sinal de que seus leitores não conheciam bem o contexto judaico.",
+            motivo: "Anunciar Jesus como o Cristo, Filho de Deus (1:1), e encorajar os discípulos a seguirem Jesus mesmo no sofrimento.",
+            capitulos: [
+                {titulo: "Capítulos 1 a 8 · Poder e identidade", texto: "Depois do batismo e da tentação (1:9-15), Jesus chama os primeiros discípulos (1:16-20), acalma a tempestade (4:35-41), alimenta uma multidão (6:30-44) e ouve Pedro dizer que ele é o Cristo (8:27-30). Contexto: boa parte da ação se passa na Galileia, entre pescadores do mar da Galileia, e a palavra imediatamente aparece com frequência, dando ritmo rápido ao relato."},
+                {titulo: "Capítulos 9 e 10 · O caminho da cruz", texto: "Na transfiguração (9:2-8), os discípulos veem a glória de Jesus, mas ele anuncia três vezes sua morte (8:31; 9:31; 10:33-34). Em 10:42-45, ensina que a grandeza está em servir, e em 10:46-52 cura o cego Bartimeu. Contexto: Jesus caminha rumo a Jerusalém, e a ideia de servir contrastava com o modelo de poder do império romano."},
+                {titulo: "Capítulos 11 a 16 · Jerusalém, cruz e túmulo vazio", texto: "Jesus entra em Jerusalém (11:1-11), purifica o templo (11:15-19), celebra a ceia (14:22-25), ora no Getsêmani (14:32-42) e é crucificado (15:21-39). As mulheres encontram o túmulo vazio (16:1-8). Contexto: o templo era o centro religioso dos judeus, e os manuscritos mais antigos terminam em 16:8, por isso os versículos seguintes costumam aparecer com nota nas edições."}
+            ],
+            perguntas: [
+                {texto: "Qual é o evangelho mais curto?", opcoes: ["Mateus", "Marcos", "Lucas", "João"], certa: 1},
+                {texto: "Segundo a tradição, a quem Marcos esteve ligado?", opcoes: ["Pedro", "Tiago", "Pilatos"], certa: 0}
+            ]
+        },
+        {
+            nome: "Lucas", testamento: "Novo Testamento",
+            resumo: "Jesus como Salvador de todos, com atenção aos pobres e excluídos.",
+            autor: "Lucas, médico e companheiro de Paulo (Cl 4:14)", epoca: "século I d.C.", local: "não se sabe ao certo",
+            destinatarios: "Teófilo (1:3)", genero: "evangelho (o primeiro volume de uma obra em dois, com Atos)",
+            politico: "Lucas situa os fatos citando governantes romanos: o imperador Augusto (2:1) e Tibério (3:1), com Pôncio Pilatos como governador da Judeia.",
+            cultural: "O cenário é o mundo mediterrâneo de língua grega. Lucas dá atenção a mulheres, pobres, samaritanos e estrangeiros, grupos marginalizados na sociedade da época.",
+            motivo: "Escrever de forma ordenada, para que Teófilo tenha certeza do que aprendeu (1:1-4).",
+            capitulos: [
+                {titulo: "Capítulos 1 a 4 · Nascimento e início", texto: "O anjo anuncia o nascimento de Jesus a Maria (1:26-38), e os pastores são os primeiros a saber do nascimento em Belém (2:1-20). Aos doze anos, Jesus está no templo (2:41-52), e em Nazaré ele lê o profeta Isaías na sinagoga (4:16-30). Contexto: um recenseamento sob Augusto leva José a Belém (2:1-2), e os pastores eram trabalhadores humildes."},
+                {titulo: "Capítulos 5 a 18 · Ensino e parábolas", texto: "Jesus chama o cobrador de impostos Levi (5:27-32), ensina as bem-aventuranças (6:20-26) e conta parábolas como o bom samaritano (10:25-37), o filho pródigo (15:11-32) e o rico e Lázaro (16:19-31). Contexto: os samaritanos eram desprezados pelos judeus, e as parábolas usam cenas do cotidiano, como pastores, agricultores e famílias."},
+                {titulo: "Capítulos 19 a 24 · Jerusalém e ressurreição", texto: "Jesus encontra Zaqueu (19:1-10), entra em Jerusalém (19:28-40), celebra a última ceia (22:14-20) e promete o paraíso a um dos condenados ao seu lado (23:39-43). Dois discípulos o encontram no caminho de Emaús (24:13-35). Contexto: Zaqueu era chefe de cobradores de impostos a serviço de Roma, vistos como traidores pelo povo."}
+            ],
+            perguntas: [
+                {texto: "A quem Lucas dirige seu evangelho?", opcoes: ["Teófilo", "Timóteo", "Tito"], certa: 0},
+                {texto: "Qual parábola, exclusiva de Lucas, fala de um samaritano que ajuda um ferido?", opcoes: ["Filho pródigo", "Bom samaritano", "Semeador", "Talentos"], certa: 1},
+                {texto: "Que outro livro Lucas escreveu?", opcoes: ["Atos", "Romanos", "Hebreus"], certa: 0}
+            ]
+        },
+        {
+            nome: "João", testamento: "Novo Testamento",
+            resumo: "Jesus como a Palavra que se fez carne, o Filho de Deus.",
+            autor: "João, discípulo de Jesus (segundo a tradição)", epoca: "final do século I d.C. (segundo a tradição)", local: "Éfeso (segundo a tradição)",
+            destinatarios: "Cristãos de culturas judaica e grega", genero: "evangelho",
+            politico: "Roma continuava no poder. Ao final do século I, os cristãos já eram vistos como um grupo distinto dos judeus, e a tensão com autoridades religiosas aparece no livro (9:22).",
+            cultural: "João usa a ideia de Palavra (1:1), compreensível tanto para judeus quanto para gregos. O livro apresenta sinais e frases em que Jesus diz Eu sou.",
+            motivo: "Levar o leitor a crer que Jesus é o Cristo, o Filho de Deus, e a ter vida em seu nome (20:31).",
+            capitulos: [
+                {titulo: "Capítulos 1 a 4 · A Palavra e os primeiros sinais", texto: "O prólogo apresenta Jesus como a Palavra que estava com Deus (1:1-18). Seguem os primeiros discípulos (1:35-51), a água transformada em vinho em Caná (2:1-11), a conversa com Nicodemos (3:1-21) e o encontro com a mulher samaritana (4:1-42). Contexto: judeus e samaritanos evitavam contato (4:9), e Nicodemos era fariseu e membro do Sinédrio (3:1)."},
+                {titulo: "Capítulos 5 a 12 · Sinais e declarações Eu sou", texto: "Jesus cura um paralítico (cap. 5), declara que é o pão da vida (6:35), a luz do mundo (8:12) e o bom pastor (10:11), e ressuscita Lázaro (11:1-44). Contexto: as festas judaicas marcam o livro, como a Páscoa (6:4) e a Festa das Cabanas (7:2), e Jesus se apresenta como cumprimento do que elas lembravam."},
+                {titulo: "Capítulos 13 a 17 · Última ceia e discursos", texto: "Jesus lava os pés dos discípulos (13:1-17), dá o novo mandamento (13:34-35), diz que é o caminho, a verdade e a vida (14:6), fala da videira (15:1-8) e ora por eles (cap. 17). Contexto: na época, lavar os pés dos visitantes era tarefa de servo, o que torna o gesto de Jesus ainda mais marcante."},
+                {titulo: "Capítulos 18 a 21 · Cruz e ressurreição", texto: "Jesus é preso (cap. 18), julgado por Pilatos (18:28 a 19:16) e crucificado (19:17-37). Maria Madalena encontra o túmulo vazio (20:1-18), Tomé vê o ressuscitado (20:24-29) e Pedro é restaurado (21:15-19). Contexto: a crucificação era uma punição romana, e o próprio João explica o propósito do livro em 20:30-31."}
+            ],
+            perguntas: [
+                {texto: "Como João chama Jesus no prólogo?", opcoes: ["Mestre", "Palavra", "Profeta", "Pastor"], certa: 1},
+                {texto: "Em que cidade Jesus transformou água em vinho?", opcoes: ["Caná", "Belém", "Betânia"], certa: 0},
+                {texto: "Segundo João 20:31, por que o livro foi escrito?", opcoes: ["Para registrar genealogias", "Para que o leitor creia que Jesus é o Cristo", "Para narrar as viagens de Paulo"], certa: 1}
+            ]
+        },
+        {
+            nome: "Atos", testamento: "Novo Testamento",
+            resumo: "o início da igreja no mundo romano.",
+            autor: "Lucas (segundo a tradição)", epoca: "século I d.C.", local: "[preencher]",
+            destinatarios: "Teófilo", genero: "narrativa histórica",
+            politico: "[texto sobre o cenário político]",
+            cultural: "[texto sobre o cenário cultural e religioso]",
+            motivo: "[texto sobre o motivo do livro]",
+            capitulos: [
+                {titulo: "Capítulos 1 a 7 · Jerusalém", texto: "Jesus promete poder aos discípulos e define o alcance da missão: Jerusalém, Judeia, Samaria e os confins da terra (1:8). Em Pentecostes, o Espírito vem sobre eles (2:1-4) e a igreja cresce partilhando bens (2:42-47). Estêvão é apedrejado depois de seu discurso (7:58-60). Contexto: Pentecostes era uma festa judaica que reunia peregrinos de várias regiões (2:9-11), e o Sinédrio era o conselho judaico sob domínio romano."},
+                {titulo: "Capítulos 8 a 12 · Judeia, Samaria e além", texto: "Filipe anuncia o evangelho em Samaria e a um oficial etíope (8:26-40). Saulo, perseguidor, encontra Jesus no caminho de Damasco (9:1-19). Pedro visita o centurião Cornélio, e os não judeus recebem o Espírito (10:44-48). Em Antioquia, os discípulos são chamados cristãos pela primeira vez (11:26). Contexto: samaritanos e judeus eram rivais históricos, e a entrada de não judeus na igreja foi uma mudança grande."},
+                {titulo: "Capítulos 13 a 20 · As viagens de Paulo", texto: "Paulo e Barnabé saem de Antioquia na primeira viagem (13:1-3). O encontro de Jerusalém decide que os não judeus não precisam seguir toda a lei (cap. 15). Em Atenas, Paulo fala no Areópago (17:22-31) e em Corinto fica um ano e meio (18:11). Contexto: as estradas romanas e o grego comum facilitavam as viagens, e o procônsul Gálio (18:12), citado em uma inscrição de Delfos, ajuda a datar a estadia em Corinto por volta de 51 a 52 d.C."},
+                {titulo: "Capítulos 21 a 28 · Prisão e Roma", texto: "Paulo é preso em Jerusalém (21:27-36), usa sua cidadania romana (22:25-28) e é ouvido por Félix, Festo e Agripa (caps. 24 a 26). Ao apelar a César (25:11), é enviado a Roma e passa por um naufrágio (cap. 27). O livro termina com Paulo pregando em Roma, sob guarda (28:30-31). Contexto: a cidadania romana garantia direitos legais, inclusive o de ser julgado em Roma."}
+            ],
+            perguntas: [
+                {texto: "Segundo a tradição, quem escreveu Atos?", opcoes: ["Pedro", "João", "Lucas", "Paulo"], certa: 2},
+                {texto: "A quem Atos é dirigido no seu início?", opcoes: ["Teófilo", "Timóteo", "Tito", "Filemom"], certa: 0}
+            ]
+        },
+        {
+            nome: "Romanos", testamento: "Novo Testamento",
+            resumo: "uma carta de Paulo à igreja em Roma.",
+            autor: "Paulo", epoca: "por volta de 57 d.C.", local: "Corinto",
+            destinatarios: "Igreja em Roma", genero: "carta",
+            politico: "Roma era a capital do império. [texto sobre o cenário político]",
+            cultural: "[texto sobre judeus e não judeus na igreja de Roma]",
+            motivo: "[texto sobre o motivo da carta]",
+            capitulos: [
+                {titulo: "Capítulos 1 a 3 · Todos precisam de Deus", texto: "Paulo apresenta o tema da carta: o evangelho é poder de Deus para a salvação, e a justiça de Deus se revela pela fé (1:16-17). Ele mostra que judeus e não judeus estão sob o pecado (3:9 e 3:23) e que a justificação vem pela graça (3:21-26). Contexto: a igreja em Roma reunia judeus e não judeus, e o imperador Cláudio havia expulsado judeus da cidade por volta de 49 d.C. (At 18:2), o que gerou tensões quando eles voltaram."},
+                {titulo: "Capítulos 4 e 5 · Fé e paz com Deus", texto: "Paulo usa Abraão como exemplo: ele creu em Deus e isso lhe foi atribuído como justiça (4:3, citando Gn 15:6). Em 5:1 afirma que, justificados pela fé, temos paz com Deus, e em 5:8 que Cristo morreu por nós quando ainda éramos pecadores. Contexto: citar Abraão respondia à pergunta judaica sobre quem pertence ao povo de Deus, já que ele viveu antes da circuncisão e da lei (4:10)."},
+                {titulo: "Capítulos 6 a 8 · Vida nova", texto: "Paulo fala de morrer para o pecado e andar em novidade de vida (6:4) e descreve a luta interior de quem quer fazer o bem (7:15-24). O cap. 8 abre dizendo que não há condenação para quem está em Cristo (8:1) e termina afirmando que nada nos separa do amor de Deus (8:38-39). Contexto: a lei era central para os judeus de Roma, e Paulo explica qual é o seu papel diante da graça."},
+                {titulo: "Capítulos 9 a 11 · Israel e os povos", texto: "Paulo expressa sua dor pelo povo de Israel (9:1-3), afirma que quem confessa Jesus como Senhor será salvo (10:9) e usa a imagem da oliveira, na qual os não judeus são enxertados (11:17-24). Contexto: o objetivo era evitar que os cristãos não judeus de Roma desprezassem os judeus, lembrando que a raiz é a mesma."},
+                {titulo: "Capítulos 12 a 16 · Vida prática", texto: "Paulo pede que os cristãos ofereçam a vida como sacrifício vivo e não se conformem com este mundo (12:1-2), orienta sobre a relação com as autoridades (13:1-7) e sobre respeitar quem tem consciência diferente em comida e dias especiais (cap. 14). Cita planos de ir à Espanha (15:24) e saúda vários irmãos, como Febe, Priscila e Áquila (16:1-5). Contexto: a carta foi escrita no início do governo de Nero, antes das perseguições posteriores, e a lista de saudações mostra a diversidade da igreja em Roma."}
+            ],
+            perguntas: [
+                {texto: "Quem escreveu a carta aos Romanos?", opcoes: ["Paulo", "Pedro", "Tiago", "Judas"], certa: 0},
+                {texto: "Para quem a carta foi escrita?", opcoes: ["Igreja em Corinto", "Igreja em Roma", "Igreja em Éfeso"], certa: 1},
+                {texto: "De qual cidade Paulo escreveu a carta?", opcoes: ["Corinto", "Jerusalém", "Antioquia", "Éfeso"], certa: 0}
+            ]
+        },
+        {
+            nome: "Apocalipse", testamento: "Novo Testamento",
+            resumo: "visões de esperança para igrejas sob pressão.",
+            autor: "João (a tradição o identifica com o apóstolo)", epoca: "final do século I d.C., no governo de Domiciano (segundo a tradição)", local: "ilha de Patmos (1:9)",
+            destinatarios: "Sete igrejas da Ásia (1:4)", genero: "apocalíptico, profecia e carta",
+            politico: "As igrejas viviam sob o império romano, onde o culto ao imperador era cobrado em várias cidades, o que gerava conflito para quem adorava só a Deus.",
+            cultural: "O livro usa imagens e números simbólicos (como sete e doze), comuns na literatura apocalíptica judaica, e retoma muitos temas do Antigo Testamento, como Ezequiel e Daniel.",
+            motivo: "Consolar e encorajar as igrejas a permanecerem fiéis, mostrando que Deus governa a história.",
+            capitulos: [
+                {titulo: "Capítulos 1 a 3 · Cartas às sete igrejas", texto: "João vê Cristo glorificado (1:12-20) e recebe mensagens para Éfeso, Esmirna, Pérgamo, Tiatira, Sardes, Filadélfia e Laodiceia (caps. 2 e 3). A última carta termina com o convite de Cristo para abrir a porta (3:14-22). Contexto: eram cidades reais da província romana da Ásia, na atual Turquia, e cada carta trata de situações locais, como a riqueza de Laodiceia."},
+                {titulo: "Capítulos 4 a 11 · O trono e os selos", texto: "João vê o trono de Deus (cap. 4), o Cordeiro que abre o livro selado (5:1-14), os sete selos (cap. 6) e as sete trombetas (caps. 8 a 11). Contexto: a cena do trono de Deus contrasta com o trono do imperador, mostrando quem realmente governa e julga."},
+                {titulo: "Capítulos 12 a 20 · Conflito e vitória", texto: "A mulher e o dragão (cap. 12) e a besta (cap. 13) retratam o conflito entre o bem e o mal. A queda da Babilônia vem no cap. 18, e o cavaleiro em cavalo branco aparece em 19:11-16. O cap. 20 narra a derrota final do mal. Contexto: Babilônia funciona como símbolo, e muitos estudiosos veem nela uma referência a Roma, pelo poder e pelo luxo."},
+                {titulo: "Capítulos 21 e 22 · Novo céu e nova terra", texto: "João vê a nova Jerusalém descendo do céu (21:1-4) e o rio da vida (22:1-5). O livro termina com um convite (22:17) e a promessa da volta de Cristo (22:20). Contexto: a visão final retoma temas do Éden (Gn 2) e de Isaías 65:17, mostrando a restauração de toda a criação."}
+            ],
+            perguntas: [
+                {texto: "Em que ilha João recebeu as visões?", opcoes: ["Chipre", "Creta", "Patmos"], certa: 2},
+                {texto: "Para quantas igrejas são dirigidas as cartas dos capítulos 2 e 3?", opcoes: ["Três", "Sete", "Doze"], certa: 1}
+            ]
+        }
+    ]
+
+    // o que a pessoa já fez
+    let progresso = []      // progresso[0] = [true, false, false, false] -> etapas do livro 0
+    let historico = []      // cada etapa marcada, com o dia
+    let anotacoes = []
+    let tentativas = []
+
+    let livroAtual = 0
+    let perguntaAtual = 0
+    let respostas = []
+
+    let usuarios = []
+    let usuarioAtual = null
+
+    carregarUsuarios()
+    preencherFiltro()
+
+    // se a pessoa já entrou nesta aba, volta direto para a home
+    let emailSessao = sessionStorage.getItem("usuario")
+    if (emailSessao != null && buscarUsuario(emailSessao) != null){
+        iniciarSessao(buscarUsuario(emailSessao))
+    }
+
+    // ---------- CONTA ----------
+    function carregarUsuarios(){
+        let texto = localStorage.getItem("bereia_usuarios")
+        if (texto != null){
+            usuarios = JSON.parse(texto)
+        }
+    }
+
+    function buscarUsuario(email){
+        let i = 0
+        while (i < usuarios.length){
+            if (usuarios[i].email == email){
+                return usuarios[i]
+            }
+            i ++
+        }
+        return null
+    }
+
+    function cadastrar(){
+        let nome = ipt_cad_nome.value.trim()
+        let email = ipt_cad_email.value.trim().toLowerCase()
+        let senha = ipt_cad_senha.value
+        let confirma = ipt_cad_confirma.value
+
+        if (nome == "" || email == "" || senha == ""){
+            div_erro_cad.innerHTML = "Preencha todos os campos."
+            return
+        }
+        if (email.indexOf("@") == -1 || email.indexOf(".") == -1){
+            div_erro_cad.innerHTML = "Digite um e-mail válido."
+            return
+        }
+        if (senha.length < 6){
+            div_erro_cad.innerHTML = "A senha precisa ter pelo menos 6 caracteres."
+            return
+        }
+        if (senha != confirma){
+            div_erro_cad.innerHTML = "As senhas não são iguais."
+            return
+        }
+        if (buscarUsuario(email) != null){
+            div_erro_cad.innerHTML = "Já existe uma conta com esse e-mail."
+            return
+        }
+
+        // se é a primeira conta e já havia dados salvos antes do login existir, ficam com ela
+        if (usuarios.length == 0 && localStorage.getItem("contexto") != null){
+            localStorage.setItem("dados_" + email, localStorage.getItem("contexto"))
+            localStorage.removeItem("contexto")
+        }
+
+        let novo = {nome: nome, email: email, senha: senha}
+        usuarios.push(novo)
+        localStorage.setItem("bereia_usuarios", JSON.stringify(usuarios))
+
+        div_erro_cad.innerHTML = ""
+        ipt_cad_nome.value = ""
+        ipt_cad_email.value = ""
+        ipt_cad_senha.value = ""
+        ipt_cad_confirma.value = ""
+        iniciarSessao(novo)
+    }
+
+    function entrarConta(){
+        let email = ipt_login_email.value.trim().toLowerCase()
+        let senha = ipt_login_senha.value
+        let usuario = buscarUsuario(email)
+
+        if (usuario == null || usuario.senha != senha){
+            div_erro_login.innerHTML = "E-mail ou senha incorretos."
+            return
+        }
+
+        div_erro_login.innerHTML = ""
+        ipt_login_email.value = ""
+        ipt_login_senha.value = ""
+        iniciarSessao(usuario)
+    }
+
+    function iniciarSessao(usuario){
+        usuarioAtual = usuario
+        sessionStorage.setItem("usuario", usuario.email)
+        carregar()
+        spn_usuario.innerHTML = limpar(usuario.nome)
+        div_menu_visitante.style.display = "none"
+        div_menu_usuario.style.display = "flex"
+        mostrarTela("home")
+    }
+
+    function sair(){
+        sessionStorage.removeItem("usuario")
+        usuarioAtual = null
+        progresso = []
+        historico = []
+        anotacoes = []
+        tentativas = []
+        div_menu_usuario.style.display = "none"
+        div_menu_visitante.style.display = "flex"
+        mostrarTela("inicio")
+    }
+
+    function mostrarSobre(){
+        mostrarTela("inicio")
+        div_sobre.scrollIntoView()
+    }
+
+    // ---------- DADOS DE QUEM ENTROU ----------
+    function carregar(){
+        progresso = []
+        historico = []
+        anotacoes = []
+        tentativas = []
+
+        // começa com tudo vazio
+        let i = 0
+        while (i < livros.length){
+            progresso.push([false, false, false, false])
+            i ++
+        }
+
+        let texto = localStorage.getItem("dados_" + usuarioAtual.email)
+        if (texto == null){
+            return
+        }
+
+        let dados = JSON.parse(texto)
+        historico = dados.historico
+        anotacoes = dados.anotacoes
+        tentativas = dados.tentativas
+
+        if (dados.versao == undefined){
+            // foi salvo quando só existiam 4 livros: troca os números pelas posições novas
+            let novas = [0, 2, 7, 8]   // Gênesis, Daniel, Atos, Romanos
+            i = 0
+            while (i < dados.progresso.length){
+                progresso[novas[i]] = dados.progresso[i]
+                i ++
+            }
+            i = 0
+            while (i < historico.length){
+                historico[i].livro = novas[historico[i].livro]
+                i ++
+            }
+            i = 0
+            while (i < anotacoes.length){
+                anotacoes[i].livro = novas[anotacoes[i].livro]
+                i ++
+            }
+            i = 0
+            while (i < tentativas.length){
+                tentativas[i].livro = novas[tentativas[i].livro]
+                i ++
+            }
+            salvar()
+        } else {
+            progresso = dados.progresso
+        }
+    }
+
+    function salvar(){
+        if (usuarioAtual == null){
+            return
+        }
+        let dados = {versao: 2, progresso: progresso, historico: historico, anotacoes: anotacoes, tentativas: tentativas}
+        localStorage.setItem("dados_" + usuarioAtual.email, JSON.stringify(dados))
+    }
+
+    function mostrarTela(nome){
+        div_inicio.style.display = "none"
+        div_acesso.style.display = "none"
+        div_notas.style.display = "none"
+        div_home.style.display = "none"
+        div_livro.style.display = "none"
+        div_quiz.style.display = "none"
+        div_dash.style.display = "none"
+        div_biblia.style.display = "none"
+        document.getElementById("div_" + nome).style.display = "block"
+
+        if (nome == "home"){
+            mostrarLivros()
+            spn_qtd_notas.innerHTML = anotacoes.length
+        }
+        if (nome == "notas"){
+            mostrarNotas()
+        }
+        if (nome == "dash"){
+            mostrarDashboard()
+        }
+        window.scrollTo(0, 0)
+    }
+
+    function dataAtras(dias){
+        let d = new Date()
+        d.setDate(d.getDate() - dias)
+        return d.toLocaleDateString("pt-BR")
+    }
+
+    function porcentagem(indice){
+        let feitas = 0
+        let i = 0
+        while (i < etapas.length){
+            if (progresso[indice][i] == true){
+                feitas ++
+            }
+            i ++
+        }
+        return feitas / etapas.length * 100
+    }
+
+    // evita que um texto com < ou & quebre a página
+    function limpar(texto){
+        return texto.replaceAll("&", "&amp;").replaceAll("<", "&lt;")
+    }
+
+    // ---------- HOME ----------
+    function mostrarLivros(){
+        div_livros.innerHTML = ""
+        let i = 0
+        while (i < livros.length){
+            div_livros.innerHTML += `
+            <a href="#" style="${estiloLivro}" onclick="abrirLivro(${i})">
+                <small>${livros[i].testamento}</small>
+                <h3 style="${estiloH3}">${livros[i].nome}</h3>
+                <p>${livros[i].resumo}</p>
+                <div style="${estiloBarraClara}"><i style="display:block;height:100%;background:#fff;width:${porcentagem(i)}%"></i></div>
+            </a>`
+            i ++
+        }
+    }
+
+    // ---------- LIVRO ----------
+    function abrirLivro(indice){
+        livroAtual = indice
+        let l = livros[indice]
+
+        spn_nome.innerHTML = l.nome
+        spn_resumo.innerHTML = l.resumo
+        spn_politico.innerHTML = l.politico
+        spn_cultural.innerHTML = l.cultural
+        spn_motivo.innerHTML = l.motivo
+        div_ficha.innerHTML = `
+        <span style="${estiloMuted}">Autor</span><strong>${l.autor}</strong>
+        <span style="${estiloMuted}">Época</span><strong>${l.epoca}</strong>
+        <span style="${estiloMuted}">Escrito em</span><strong>${l.local}</strong>
+        <span style="${estiloMuted}">Destinatários</span><strong>${l.destinatarios}</strong>
+        <span style="${estiloMuted}">Gênero</span><strong>${l.genero}</strong>`
+
+        ipt_titulo.value = ""
+        ipt_texto.value = ""
+        div_erro.innerHTML = ""
+        mostrarEtapas()
+        mostrarAnotacoes()
+        mostrarCapitulos()
+        mostrarTela("livro")
+    }
+
+    function mostrarCapitulos(){
+        div_capitulos.innerHTML = ""
+        let capitulos = livros[livroAtual].capitulos
+        let i = 0
+        while (i < capitulos.length){
+            div_capitulos.innerHTML += `
+            <div style="padding:16px 0;border-top:1px solid #EADFD8">
+                <strong style="color:#7c2a0d">${capitulos[i].titulo}</strong>
+                <p style="margin:6px 0 0">${capitulos[i].texto}</p>
+            </div>`
+            i ++
+        }
+    }
+
+    function mostrarEtapas(){
+        div_etapas.innerHTML = ""
+        let i = 0
+        while (i < etapas.length){
+            let marcada = ""
+            if (progresso[livroAtual][i] == true){
+                marcada = "checked"
+            }
+            div_etapas.innerHTML += `
+            <div style="${estiloEtapa}">
+                <input type="checkbox" id="ipt_etapa${i}" style="${estiloCheck}" ${marcada} onchange="marcarEtapa(${i})">
+                <label for="ipt_etapa${i}">${etapas[i]}</label>
+            </div>`
+            i ++
+        }
+        let p = porcentagem(livroAtual)
+        spn_porcentagem.innerHTML = `${p}%`
+        div_barra.style.width = `${p}%`
+    }
+
+    function marcarEtapa(numero){
+        let caixa = document.getElementById("ipt_etapa" + numero)
+        registrarEtapa(livroAtual, numero, caixa.checked)
+        mostrarEtapas()
+    }
+
+    function registrarEtapa(indice, numero, marcada){
+        let jaFeita = progresso[indice][numero]
+        progresso[indice][numero] = marcada
+
+        if (marcada == true && jaFeita == false){
+            historico.push({livro: indice, etapa: numero, dia: dataAtras(0), tempo: Date.now()})
+        }
+        if (marcada == false && jaFeita == true){
+            // tira do histórico a última vez que essa etapa foi marcada
+            let i = historico.length - 1
+            while (i >= 0){
+                if (historico[i].livro == indice && historico[i].etapa == numero){
+                    historico.splice(i, 1)
+                    i = -1
+                }
+                i --
+            }
+        }
+        salvar()
+    }
+
+    function salvarAnotacao(){
+        let titulo = ipt_titulo.value
+        let texto = ipt_texto.value
+
+        if (texto == ""){
+            div_erro.innerHTML = "Escreva a anotação antes de salvar."
+            return
+        }
+        if (titulo == ""){
+            titulo = "Sem título"
+        }
+
+        anotacoes.push({livro: livroAtual, titulo: titulo, texto: texto, dia: dataAtras(0)})
+        salvar()
+
+        div_erro.innerHTML = ""
+        ipt_titulo.value = ""
+        ipt_texto.value = ""
+        mostrarAnotacoes()
+    }
+
+    function apagarAnotacao(posicao){
+        anotacoes.splice(posicao, 1)
+        salvar()
+        mostrarAnotacoes()
+        mostrarNotas()
+    }
+
+    function mostrarAnotacoes(){
+        div_anotacoes.innerHTML = ""
+        let i = 0
+        while (i < anotacoes.length){
+            if (anotacoes[i].livro == livroAtual){
+                div_anotacoes.innerHTML += `
+                <div style="${estiloCard};margin-bottom:12px">
+                    <strong>${limpar(anotacoes[i].titulo)}</strong>
+                    <p>${limpar(anotacoes[i].texto)}</p>
+                    <button style="${estiloBtnAlt}" onclick="apagarAnotacao(${i})">APAGAR</button>
+                </div>`
+            }
+            i ++
+        }
+    }
+
+    // ---------- MINHAS ANOTAÇÕES ----------
+    function preencherFiltro(){
+        ipt_filtro.innerHTML = `<option value="-1">Todos os livros</option>`
+        let i = 0
+        while (i < livros.length){
+            ipt_filtro.innerHTML += `<option value="${i}">${livros[i].nome}</option>`
+            i ++
+        }
+    }
+
+    function mostrarNotas(){
+        let filtro = ipt_filtro.value
+        div_lista_notas.innerHTML = ""
+        let mostradas = 0
+
+        // da mais nova para a mais antiga
+        let i = anotacoes.length - 1
+        while (i >= 0){
+            if (filtro == "-1" || anotacoes[i].livro == filtro){
+                let dia = ""
+                if (anotacoes[i].dia != undefined){
+                    dia = anotacoes[i].dia
+                }
+                div_lista_notas.innerHTML += `
+                <div style="${estiloCard};margin-bottom:16px">
+                    <div style="${estiloLinha}">
+                        <strong style="color:#7c2a0d">${livros[anotacoes[i].livro].nome}</strong>
+                        <span style="${estiloMuted};font-size:14px">${dia}</span>
+                    </div>
+                    <h3 style="${estiloH3};margin-top:8px">${limpar(anotacoes[i].titulo)}</h3>
+                    <p>${limpar(anotacoes[i].texto)}</p>
+                    <button style="${estiloBtn}" onclick="abrirLivro(${anotacoes[i].livro})">VER NO LIVRO</button>
+                    <button style="${estiloBtnAlt}" onclick="apagarAnotacao(${i})">APAGAR</button>
+                </div>`
+                mostradas ++
+            }
+            i --
+        }
+
+        if (mostradas == 0){
+            div_lista_notas.innerHTML = `<p style="${estiloMuted}">Nenhuma anotação por aqui ainda. Abra um livro e escreva a primeira.</p>`
+        }
+    }
+
+    // ---------- QUESTIONÁRIO ----------
+    function iniciarQuiz(){
+        perguntaAtual = 0
+        respostas = []
+        spn_nome_quiz.innerHTML = livros[livroAtual].nome
+        mostrarPergunta()
+        mostrarTela("quiz")
+    }
+
+    function mostrarPergunta(){
+        let p = livros[livroAtual].perguntas[perguntaAtual]
+        let total = livros[livroAtual].perguntas.length
+        let textoBotao = "RESPONDER"
+        if (perguntaAtual == total - 1){
+            textoBotao = "FINALIZAR"
+        }
+
+        div_quiz_tela.innerHTML = `
+        <strong>Pergunta ${perguntaAtual + 1} de ${total}</strong>
+        <div style="${estiloBarra};margin:8px 0 24px"><i style="${estiloBarraDentro};width:${perguntaAtual / total * 100}%"></i></div>
+        <div style="${estiloCard}">
+            <h3 style="${estiloH3}">${p.texto}</h3>
+            <div id="div_opcoes"></div>
+            <p style="${estiloMuted}" id="div_erro_quiz" role="alert"></p>
+        </div>
+        <p><button style="${estiloBtn}" onclick="responder()">${textoBotao}</button></p>`
+
+        let i = 0
+        while (i < p.opcoes.length){
+            div_opcoes.innerHTML += `
+            <label style="${estiloOpcao}">
+                <input type="radio" name="opcao" value="${i}" style="width:20px;height:20px;accent-color:#7c2a0d" onchange="destacar()">${p.opcoes[i]}
+            </label>`
+            i ++
+        }
+    }
+
+    // pinta de rosa a alternativa escolhida
+    function destacar(){
+        let opcoes = document.getElementsByName("opcao")
+        let i = 0
+        while (i < opcoes.length){
+            opcoes[i].parentElement.style.borderColor = "#CDBFB6"
+            opcoes[i].parentElement.style.background = "#fff"
+            if (opcoes[i].checked){
+                opcoes[i].parentElement.style.borderColor = "#7c2a0d"
+                opcoes[i].parentElement.style.background = "#F4E1E4"
+            }
+            i ++
+        }
+    }
+
+    function responder(){
+        let opcoes = document.getElementsByName("opcao")
+        let escolhida = -1
+        let i = 0
+        while (i < opcoes.length){
+            if (opcoes[i].checked){
+                escolhida = i
+            }
+            i ++
+        }
+
+        if (escolhida == -1){
+            div_erro_quiz.innerHTML = "Escolha uma alternativa para continuar."
+            return
+        }
+
+        respostas.push(escolhida)
+        perguntaAtual ++
+
+        if (perguntaAtual < livros[livroAtual].perguntas.length){
+            mostrarPergunta()
+        } else {
+            mostrarResultado()
+        }
+    }
+
+    function mostrarResultado(){
+        let perguntas = livros[livroAtual].perguntas
+        let total = perguntas.length
+        let acertos = 0
+        let lista = ""
+
+        let i = 0
+        while (i < total){
+            let tag = estiloTagNo
+            let textoTag = "Errou"
+            if (respostas[i] == perguntas[i].certa){
+                acertos ++
+                tag = estiloTagOk
+                textoTag = "Acertou"
+            }
+            lista += `
+            <div style="${estiloLinha};padding:12px 0;border-top:1px solid #EADFD8">
+                <span>${i + 1}. ${perguntas[i].texto}<br><small style="${estiloMuted}">Resposta certa: ${perguntas[i].opcoes[perguntas[i].certa]}</small></span>
+                <span style="${tag}">${textoTag}</span>
+            </div>`
+            i ++
+        }
+
+        tentativas.push({livro: livroAtual, acertos: acertos, total: total, dia: dataAtras(0)})
+
+        let mensagem = "Releia o contexto do livro e tente de novo. Acertando 60%, a etapa Revisão é concluída."
+        if (acertos / total >= 0.6){
+            registrarEtapa(livroAtual, 3, true)
+            mensagem = "A etapa Revisão deste livro foi concluída."
+        }
+        salvar()
+
+        div_quiz_tela.innerHTML = `
+        <div style="${estiloSage}"><h2 style="${estiloH2}">Você acertou ${acertos} de ${total}</h2><p>${mensagem}</p></div>
+        <div style="${estiloCard};margin:20px 0">${lista}</div>
+        <p style="${estiloLinha}">
+            <button style="${estiloBtnAlt}" onclick="iniciarQuiz()">REFAZER</button>
+            <button style="${estiloBtn}" onclick="abrirLivro(${livroAtual})">VOLTAR AO LIVRO</button>
+        </p>`
+    }
+
+    // ---------- DASHBOARD ----------
+    function mostrarDashboard(){
+        let feitas = 0
+        let concluidos = 0
+
+        let i = 0
+        while (i < livros.length){
+            let feitasLivro = 0
+            let j = 0
+            while (j < etapas.length){
+                if (progresso[i][j] == true){
+                    feitasLivro ++
+                }
+                j ++
+            }
+            feitas += feitasLivro
+            if (feitasLivro == etapas.length){
+                concluidos ++
+            }
+            i ++
+        }
+        let geral = Math.round(feitas / (livros.length * etapas.length) * 100)
+
+        // dias que tiveram estudo
+        let dias = []
+        i = 0
+        while (i < historico.length){
+            dias.push(historico[i].dia)
+            i ++
+        }
+
+        // sequência de dias seguidos
+        let sequencia = 0
+        let dia = 0
+        if (dias.indexOf(dataAtras(0)) == -1){
+            dia = 1
+        }
+        while (dias.indexOf(dataAtras(dia)) != -1){
+            sequencia ++
+            dia ++
+        }
+
+        // estudos por semana (as últimas 5 semanas)
+        let semanas = [0, 0, 0, 0, 0]
+        i = 0
+        while (i < historico.length){
+            let semana = Math.floor((Date.now() - historico[i].tempo) / 86400000 / 7)
+            if (semana < 5){
+                semanas[4 - semana] ++
+            }
+            i ++
+        }
+
+        div_cards.innerHTML = `
+        <div style="${estiloCard}"><div style="${estiloMuted}">Progresso geral</div><div style="${estiloGrande}">${geral}%</div></div>
+        <div style="${estiloCard}"><div style="${estiloMuted}">Livros concluídos</div><div style="${estiloGrande}">${concluidos} de ${livros.length}</div></div>
+        <div style="${estiloCard}"><div style="${estiloMuted}">Sequência</div><div style="${estiloGrande}">${sequencia} dias</div></div>
+        <div style="${estiloCard}"><div style="${estiloMuted}">Meta da semana</div><div style="${estiloGrande}">${semanas[4]} de 4 estudos</div></div>`
+
+        // gráfico
+        let maximo = 1
+        i = 0
+        while (i < 5){
+            if (semanas[i] > maximo){
+                maximo = semanas[i]
+            }
+            i ++
+        }
+        div_semanas.innerHTML = ""
+        i = 0
+        while (i < 5){
+            let cor = "#E4ECE1"
+            if (i == 4){
+                cor = "#7c2a0d"
+            }
+            div_semanas.innerHTML += `<div style="flex:1;background:${cor};border-radius:8px 8px 0 0;height:${semanas[i] / maximo * 100 + 4}%" title="${semanas[i]} estudos"></div>`
+            i ++
+        }
+
+        // calendário dos últimos 14 dias
+        div_dias.innerHTML = ""
+        i = 13
+        while (i >= 0){
+            let cor = "#F1E9E3"
+            if (dias.indexOf(dataAtras(i)) != -1){
+                cor = "#7c2a0d"
+            }
+            div_dias.innerHTML += `<i style="display:block;aspect-ratio:1;border-radius:8px;background:${cor}"></i>`
+            i --
+        }
+
+        // progresso de cada livro
+        div_progresso_livros.innerHTML = ""
+        i = 0
+        while (i < livros.length){
+            let situacao = "em andamento"
+            if (porcentagem(i) == 0){
+                situacao = "não iniciado"
+            }
+            if (porcentagem(i) == 100){
+                situacao = "concluído"
+            }
+            div_progresso_livros.innerHTML += `
+            <div style="${estiloLinha};margin-bottom:16px">
+                <a href="#" style="${estiloLink}" onclick="abrirLivro(${i})"><strong>${livros[i].nome}</strong></a>
+                <div style="${estiloBarra};flex:1;min-width:140px"><i style="${estiloBarraDentro};width:${porcentagem(i)}%"></i></div>
+                <span style="${estiloMuted}">${situacao}</span>
+            </div>`
+            i ++
+        }
+
+        // últimos 3 questionários
+        div_tentativas.innerHTML = ""
+        let mostradas = 0
+        i = tentativas.length - 1
+        while (i >= 0 && mostradas < 3){
+            div_tentativas.innerHTML += `
+            <div style="${estiloLinha};padding:8px 0">
+                <span>${livros[tentativas[i].livro].nome}</span>
+                <strong>${tentativas[i].acertos}/${tentativas[i].total}</strong>
+                <span style="${estiloMuted}">${tentativas[i].dia}</span>
+            </div>`
+            mostradas ++
+            i --
+        }
+        if (mostradas == 0){
+            div_tentativas.innerHTML = `<p style="${estiloMuted}">Nenhum questionário feito ainda. Abra um livro e comece.</p>`
+        }
+    }
+</script>

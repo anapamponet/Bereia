@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desempenho Escolar</title>
+</head>
+<body>
+    <h1>Desempenho Escolar</h1>
+
+    <label for="input_nota">Nota (0 a 10):</label>
+    <input type="number" id="input_nota">
+    <br>
+    <label for="input_frequencia">Frequência (0 a 100%):</label>
+    <input type="number" id="input_frequencia">
+    <br>
+
+    <button onclick="analisar()">Analisar aluno</button>
+    <div id="div_nota"></div>
+    <div id="div_frequencia"></div>
+
+    <script>
+        function analisar() {
+            let nota = Number(input_nota.value)
+            let frequencia = Number(input_frequencia.value)
+
+            if (nota < 0 || nota > 10) {
+                alert('Onde já se viu nota <0 ou >10?!')
+                div_nota.innerHTML = ``
+                div_frequencia.innerHTML = ``
+            } else if (frequencia < 0 || frequencia > 100) {
+                alert('Onde já se viu frequência <0 ou >100?!')
+                div_nota.innerHTML = ``
+                div_frequencia.innerHTML = ``
+            } else {
+                if (nota >= 0 && nota < 6) {
+                    div_nota.innerHTML = `Aluno ficou abaixo da média`
+                } else if (nota >= 6 && nota <= 8) {
+                    div_nota.innerHTML = `Aluno ficou na média`
+                } else {
+                    div_nota.innerHTML = `Aluno acima da média`
+                }
+                if (frequencia >= 75) {
+                    div_frequencia.innerHTML = `Aluno aprovado por frequência`
+                } else {
+                    div_frequencia.innerHTML = `Aluno reprovado por frequência`
+                }
+            }
+        }
+    </script>
+</body>
+</html>

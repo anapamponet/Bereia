@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valores Dinâmicos
+    <br>
+    Digite um número:
+    <input type="text" id="ipt_num">
+    <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <br>
+    <button onclick="verIndicesPares()">Ver Índices Pares</button>
+    <button onclick="verValoresPares()">Ver Valores Pares</button>
+    <button onclick="verTodos()">Ver Todos</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    let numeros = []
+
+    function cadastrar(){
+        if(ipt_num.value == ''){
+            alert('Digite um número!')
+        } else {
+            numeros[numeros.length] = Number(ipt_num.value)
+            ipt_num.value = ''
+        }
+    }
+
+    function verIndicesPares(){
+        div_exibir.innerHTML = ''
+        for(let contador = 0; contador < numeros.length; contador++){
+            if(contador % 2 == 0){
+                div_exibir.innerHTML += `Índice ${contador}: ${numeros[contador]} <br>`
+            }
+        }
+    }
+
+    function verValoresPares(){
+        div_exibir.innerHTML = ''
+        for(let contador = 0; contador < numeros.length; contador++){
+            if(numeros[contador] % 2 == 0){
+                div_exibir.innerHTML += `${numeros[contador]} <br>`
+            }
+        }
+    }
+
+    function verTodos(){
+        div_exibir.innerHTML = ''
+        for(let contador = 0; contador < numeros.length; contador++){
+            div_exibir.innerHTML += `${numeros[contador]} <br>`
+        }
+    }
+</script>
