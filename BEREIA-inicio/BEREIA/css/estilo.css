@@ -1098,3 +1098,70 @@ header .auth-actions a {
         padding-bottom: 12px
     }
 }
+
+
+/* Páginas independentes de acesso e cadastro */
+.auth-page {
+    min-height: calc(100vh - 150px);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 35px 20px 70px
+}
+
+.auth-page .auth-card {
+    width: 100%;
+    margin: 20px auto 30px
+}
+
+.auth-page .auth-switch a {
+    color: var(--wine);
+    font-weight: 600
+}
+
+.auth-message {
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--sage);
+    min-height: 18px;
+    margin: 0
+}
+
+header .nav a {
+    border: 0;
+    background: none;
+    color: #65594f;
+    font-size: 13px;
+    padding: 10px 0;
+    text-decoration: none
+}
+
+header .nav a:hover {
+    color: var(--wine)
+}
+
+header .auth-actions a {
+    text-decoration: none
+}
+
+@media(max-width:800px) {
+    header .nav {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 0;
+        border: 0;
+        background: transparent
+    }
+
+    header {
+        height: auto;
+        min-height: 76px;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding-top: 12px;
+        padding-bottom: 12px
+    }
+}
