@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bereia | Examine as Escrituras</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <a class="marca" href="#inicio" aria-label="Bereia - início">Bereia<span>.</span></a>
+
+        <nav class="menu">
+            <a href="#inicio">Início</a>
+            <a href="#origem">Nossa origem</a>
+            <a href="#proposito">Propósito</a>
+            <a href="#organizacao">A Bíblia</a>
+        </nav>
+
+        <div class="acoes-menu">
+            <a class="link-login" href="#entrar">Entrar</a>
+            <a class="botao botao-pequeno" href="#cadastro">Criar conta</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="inicio" id="inicio">
+            <div class="inicio-conteudo">
+                <p class="sobretitulo">UM CONVITE AO CONHECIMENTO</p>
+                <h1>Examine as Escrituras.</h1>
+                <p class="texto-destaque">Conhecer a Palavra também é conhecer o contexto em que ela foi escrita.</p>
+                <p class="texto-inicio">Um espaço para estudar a Bíblia com atenção à sua história, geografia e ao cenário político e religioso de cada época.</p>
+                <a class="botao" href="#origem">Conheça o Bereia</a>
+            </div>
+            <div class="inicio-detalhe" aria-hidden="true">
+                <span class="detalhe-cruz">✦</span>
+                <p>“Ora, estes de Bereia eram mais nobres (...) pois receberam a palavra com toda a avidez, examinando as Escrituras todos os dias...”</p>
+                <span class="referencia">ATOS 17:11</span>
+            </div>
+        </section>
+
+        <section class="secao-origem" id="origem">
+            <div class="origem-imagem">
+                <img src="imagens/origem.jpg" alt="Momento de adoração durante um encontro cristão">
+            </div>
+            <div class="origem-texto">
+                <p class="sobretitulo">COMO TUDO COMEÇOU</p>
+                <h2>Uma caminhada que começou com perguntas.</h2>
+                <p>O Bereia nasceu de uma experiência pessoal: comecei a ler a Bíblia com muitas perguntas e senti falta de compreender melhor o contexto daquilo que estava lendo.</p>
+                <p>Ao buscar respostas, percebi como informações sobre autores, destinatários, épocas, lugares e cenários históricos estavam espalhadas em diferentes materiais.</p>
+                <p>Assim surgiu a ideia de reunir essas informações em um só lugar, tornando o estudo mais organizado e acessível.</p>
+            </div>
+        </section>
+
+        <section class="secao-proposito" id="proposito">
+            <div class="titulo-secao">
+                <p class="sobretitulo">NOSSO PROPÓSITO</p>
+                <h2>Mais do que ler. Compreender o contexto.</h2>
+                <p>O Bereia é um projeto de estudo bíblico que busca aproximar o leitor das Escrituras por meio da investigação e da organização de informações históricas, políticas e geográficas.</p>
+            </div>
+            <div class="cartoes-proposito">
+                <article class="cartao">
+                    <span class="numero-cartao">01</span>
+                    <h3>Conhecer</h3>
+                    <p>Entender o contexto histórico, político e geográfico dos livros estudados.</p>
+                </article>
+                <article class="cartao">
+                    <span class="numero-cartao">02</span>
+                    <h3>Examinar</h3>
+                    <p>Conferir as informações e referências, desenvolvendo um estudo atento às Escrituras.</p>
+                </article>
+                <article class="cartao">
+                    <span class="numero-cartao">03</span>
+                    <h3>Prosseguir</h3>
+                    <p>Fixar o aprendizado e acompanhar a constância ao longo da caminhada de estudo.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="secao-biblia" id="organizacao">
+            <div class="biblia-texto">
+                <p class="sobretitulo">UM GUIA PARA A LEITURA</p>
+                <h2>Uma biblioteca de livros, uma história que se conecta.</h2>
+                <p>A Bíblia é organizada em diferentes conjuntos de livros. Conhecer essa organização ajuda a compreender onde cada livro está situado e como ele se relaciona com os demais.</p>
+                <p class="nota-publica">A área de estudo completa, com os nove livros selecionados, fica disponível após o cadastro e o login.</p>
+            </div>
+            <div class="biblia-lista">
+                <div><span>01</span><strong>Antigo Testamento</strong><small>Lei, história, poesia e profecia</small></div>
+                <div><span>02</span><strong>Novo Testamento</strong><small>Evangelhos, história, cartas e profecia</small></div>
+            </div>
+        </section>
+
+        <section class="secao-acesso" id="entrar">
+            <p class="sobretitulo">SUA JORNADA DE ESTUDO</p>
+            <h2>Continue examinando as Escrituras.</h2>
+            <p>Crie sua conta ou entre para acessar os livros, questionários e seu progresso de estudo.</p>
+            <div class="botoes-centro">
+                <a class="botao" href="#cadastro">Criar minha conta</a>
+                <a class="botao botao-contorno" href="#cadastro">Já tenho uma conta</a>
+            </div>
+        </section>
+
+        <section class="secao-cadastro" id="cadastro">
+                <form id="cadastroForm">
+
+                    <label>Nome:</label>
+                    <input type="text" id="nomeCadastro">
+
+                    <label>E-mail:</label>
+                    <input type="email" id="emailCadastro">
+
+                    <label>Senha:</label>
+                    <input type="password" id="senhaCadastro">
+
+                    <button type="submit">Criar conta</button>
+
+                </form>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <a class="marca marca-rodape" href="#inicio">Bereia<span>.</span></a>
+        <p>Examine as Escrituras — Atos 17:11</p>
+        <small>Projeto de estudo bíblico</small>
+    </footer>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
