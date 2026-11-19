@@ -101,16 +101,20 @@
         </section>
 
         <section class="secao-cadastro" id="cadastro">
-            <div>
-                <p class="sobretitulo">FAÇA PARTE</p>
-                <h2>Seu espaço de estudo começa aqui.</h2>
-                <p>Esta é a área reservada para o formulário de cadastro e login, que construiremos na próxima etapa com JavaScript.</p>
-            </div>
-            <div class="aviso-desenvolvimento">
-                <span>PRÓXIMA ETAPA</span>
-                <h3>Cadastro e login</h3>
-                <p>Vamos criar os campos, validar as informações e entender como liberar o acesso à área de estudo.</p>
-            </div>
+                <form id="cadastroForm">
+
+                    <label>Nome:</label>
+                    <input type="text" id="nomeCadastro">
+
+                    <label>E-mail:</label>
+                    <input type="email" id="emailCadastro">
+
+                    <label>Senha:</label>
+                    <input type="password" id="senhaCadastro">
+
+                    <button type="submit">Criar conta</button>
+
+                </form>
         </section>
     </main>
 
@@ -119,5 +123,7 @@
         <p>Examine as Escrituras — Atos 17:11</p>
         <small>Projeto de estudo bíblico</small>
     </footer>
+    <script src="js/script.js"></script>
+
 </body>
 </html>
