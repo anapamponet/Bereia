@@ -22,6 +22,10 @@ if (loginForm) {
             alert("Por favor, informe sua senha.");
             return;
         }
+        if (senha.value.length < 8) {
+            alert("A senha precisa ter pelo menos 8 caracteres.");
+            return;
+        }
 
         mensagem.textContent = "Os campos foram preenchidos. A autenticação será ativada quando conectarmos o banco de dados.";
     });
