@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nota da Atividade Avaliativa</h1>
+
+Nome do aluno:
+<input type="text" id="input_nome">
+
+<br><br>
+
+Atividade Avaliativa 1:
+<input type="text" id="input_nota1">
+
+
+Atividade Avaliativa 2:
+<input type="text" id="input_nota2">
+
+
+Atividade Avaliativa 3:
+<input type="text" id="input_nota3">
+
+<br><br>
+
+<button onclick="mostrarNota()">Mostrar Nota</button>
+
+<div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    let nome;
+let nota1;
+let nota2;
+let nota3;
+let soma;
+let media;
+
+function mostrarNota() {
+    nome = input_nome.value;
+
+    nota1 = Number(input_nota1.value);
+    nota2 = Number(input_nota2.value);
+    nota3 = Number(input_nota3.value);
+
+    soma = nota1 + nota2 + nota3;
+
+    media = soma / 3;
+
+    div_mensagem.innerHTML = `
+        A soma das suas três atividades é: ${soma}<br>
+        ${nome}, a média das suas atividades é: ${media}
+    `;
+}
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Renda Mensal:
+    <input type="text" id="ipt_rm">
+    <br>
+    Crédito do Cliente:
+    <input type="text" id="ipt_cred">
+    <br>
+    Há quantos anos é correntista:
+    <input type="text" id="ipt_tempo">
+    <br>
+    Possui dívidas em aberto?
+    <select id="divida">
+        <option>Sim</option>
+        <option>Não</option>
+    </select>
+
+    <button onclick="analisar()">Analisar Crédito</button>
+</body>
+</html>
+<script>
+    function analisar(){
+        let rm = Number(ipt_rm.value);
+        let cred = Number(ipt_cred.value);
+        let tempo = Number(ipt_tempo.value);
+        let div = divida.value
+        if (renda >=3000 && cred >=600 (tempo >5 && div == 'Sim' )){
+            alert('Empréstimo aprovado!')
+        } else{
+            alert('Empréstimo negado.')
+        }
+              
+        
+    }
+</script>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <H2>Doceria gourmet</H2>
+
+    Insira a quantidade de cada doce:
+    <br>
+
+    Macarons:
+    <input type="text" id="ipt_qtdMacarons">
+    <br>
+
+    Brigadeiro:
+    <input type="text" id="ipt_qtdbrigadeiro">
+    <br>
+
+    Cupcakes:
+    <input type="text" id="ipt_qtdcupcake">
+    <br>
+
+    Cheesecake:
+    <input type="text" id="ipt_qtdcheesecake">
+    <br>
+    <br>
+
+    Insira o valor da unidade de cada doce:
+    <br>
+
+     Macarons:
+    <input type="text" id="ipt_prcMacarons">
+    <br>
+
+    Brigadeiro:
+    <input type="text" id="ipt_prcbrigadeiro">
+    <br>
+
+    Cupcakes:
+    <input type="text" id="ipt_prccupcake">
+    <br>
+
+    Cheesecake:
+    <input type="text" id="ipt_prccheesecake">
+
+
+    <button onclick="verificar()">Verificar vendas</button>
+    <div id="div_exibir"></div>
+
+</body>
+</html>
+<script>
+    function verificar(){
+        // quantidade
+        let Mqtd = Number(ipt_qtdMacarons.value);
+        let Bqtd = Number(ipt_qtdbrugadeiro.value);
+        let Cupqtd = Number(ipt_qtdcupcake.value);
+        let Chqtd = Number(ipt_qtdcheesecake.value);
+
+        // valores
+        let Mprc = Number(ipt_prccheesecake.value);
+        let Bprc = Number(ipt_prccheesecake.value);
+        let Cupprc = Number(ipt_prccheesecake.value);
+        let Chprc = Number(ipt_prccheesecake.value);
+        let contador = 0
+
+
+       if (Mqtd < 0 || Bqtd <0 || Cupqtd <0 &&|Chqtd <0){
+        div_exibir.innerHTML = 'Coloque valores válidos'
+       } else {
+         while (contador > 0){
+        contador 
+         }
+       }
+
+
+
+
+
+    }
+</script>

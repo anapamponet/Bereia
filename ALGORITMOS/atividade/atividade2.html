@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    INTERESTELAR <br>
+    Nome do astronauta: <br>
+    <input type="text" id="ipt_nomeastronauta"> <br>
+    Nome do planeta da viagem: <br>
+    <input type="text" id="ipt_nomeplaneta"> <br>
+    Tempo relativo no planeta (a Terra é N vezes mais rápida): <br>
+    <input type="text" id="ipt_temporelativo"> <br>
+    Quantidade de dias da viagem: <br>
+    <input type="text" id="ipt_qtddias"> <br>
+    Quantidade de horas da viagem: <br>
+    <input type="text" id="ipt_horasviagem"> <br>
+    Quantidade de minutos da viagem: <br>
+    <input type="text" id="ipt_minutosviagem"> <br>
+
+    <button onclick="registrar()"> Registrar Viagem </button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+<script>
+    let viagem = []
+    
+    function registrar(){
+    let nome = ipt_nomeastronauta.value
+    let planeta = ipt_nomeplaneta.value
+    let tempoR = Number(ipt_temporelativo.value)
+    let qtdD = Number(ipt_qtddias.value)
+    let qtdH = Number(ipt_horasviagem.value)
+    let qtdM = Number(ipt_minutosviagem.value)
+
+    // validações
+    if(nome == "" || planeta == ""){
+        alert('Insira os nomes')
+    } else if (tempoR <0){
+        alert('Insira um tempo relativo válido')
+    } else if (qtdD == "" || qtdH == "" || qtdM == "" ){
+        alert('Insira ao menos um valor de tempo, seja dias, horas ou minutos.')
+    }
+    //   1 ano 525600min
+        for(let i; i<viagem.length; i++){
+                let calculo = (1440 * qtdD) + (60 * qtdH) + qtdM / 525600
+                div_exibir.innerHTML += `Astronauta ${nome.infos} ficou fora ${calculo} anos no tempo da terra.`
+                if (calculo > 13){
+                    
+                }
+        }
+        let infos = {
+            nome: nome,
+            planeta: planeta,
+            tempoR: tempoR,
+            qtdD: qtdD,
+            qtdH: qtdH,
+            qtdM: qtdM
+        } 
+        infos.push(infos);
+       
+       
+    }
+</script>

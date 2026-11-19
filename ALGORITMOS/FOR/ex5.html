@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas voltas terá a corrida?
+    <input type="text" id="ipt_voltas">
+<br>
+    <button onclick="iniciar()">Iniciar corrida!</button>
+    <div id="div_corrida"></div>
+</body>
+</html>
+<script>
+    function iniciar() {
+        let voltas = Number(ipt_voltas.value);
+        div_corrida.innerHTML = '';
+
+        if (voltas < 1) {
+            div_corrida.innerHTML = 'Informe pelo menos 1 volta.';
+        }
+
+        for (let volta = 1; volta <= voltas; volta++) {
+            div_corrida.innerHTML += `Carro dando a ${volta}ª volta <br>`;
+        }
+
+        div_corrida.innerHTML += `Corrida finalizada!`;
+    }
+</script>

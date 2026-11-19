@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Início do intervalo:
+    <input type="text" id="ipt_inicio">
+    <br>
+    Fim do intervalo:
+    <input type="text" id="ipt_fim">
+    <br>
+    <button onclick="paresIntervalo()">S2 Pares</button>
+    <div id="div_pares"></div>
+</body>
+</html>
+<script>
+     function paresIntervalo() {
+        let inicio = Number(ipt_inicio.value);
+        let fim = Number(ipt_fim.value);
+        div_pares.innerHTML = '';
+
+        if (inicio >= fim) {
+            div_pares.innerHTML = 'O intervalo deve ser crescente (início menor que o fim).';
+        }
+
+        for (let cont = inicio; cont <= fim; cont++) {
+            if (cont % 2 == 0) {
+                div_pares.innerHTML += `${cont} <br>`;
+            }
+        }
+    }
+</script>

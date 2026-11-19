@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>  
+<body>
+    <!-- no multiplo ele dorme -->
+
+    <h1>corrida tartarugo e coelhildo</h1>
+
+    <label for="ipt_pista">Insira o tamanho da pista em metros:</label>
+    <input type="text" id="ipt_pista">
+    <br><br>
+    <label for="ipt_tartarugo">Quantos metros o Tartarugo anda por rodada?</label>
+    <input type="text" id="ipt_tartarugo">
+    <br><br>
+    <label for="ipt_coelhildo">Quantos metros o Coelhildo anda por rodada?</label>
+    <input type="text" id="ipt_coelhildo">
+    <br><br>
+    <label for="ipt_dormidas">A cada quantas rodadas o Coelhildo dorme?</label>
+    <input type="text" id="ipt_dormidas">
+<br><br>
+    <button onclick="largada()">Dar a largada</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function largada(){
+        // variáveis principais
+        let metros_pista = Number(ipt_pista.value);
+        let metros_tartarugo = Number(ipt_tartarugo);
+        let metros_coelhildo = Number(ipt_coelhildo.value);
+        let sonecas_coelhildo = Number(ipt_dormidas.value);
+        // variáveis auxiliares
+        let total_tartarugo = 0;
+        let total_coelhildo = 0;
+
+        // ENQUANTO
+        while (total_tartarugo < metros_pista && total_coelhildo < metros_pista){
+            // ENCERRAR SE:
+            if (metros_coelhildo <= 0 && metros_tartarugo <= 0){
+                div_mensagem.innerHTML = `Insira valores válidos.`
+            } else if (metros_coelhildo <= metros_tartarugo || sonecas_coelhildo < 2){
+                div_mensagem.innerHTML = `Insira valores diferentes.`
+            } else if (total_tartarugo != metros_pista){
+
+            } 
+        } 
+
+    }
+</script>
+
+
+
+
+
