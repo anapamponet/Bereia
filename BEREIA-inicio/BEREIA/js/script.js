@@ -1,3 +1,6 @@
+// Cadastro do Bereia — primeira etapa de validação
+// Vamos continuar desenvolvendo este arquivo juntas, passo a passo.
+
 let cadastroForm = document.getElementById("cadastroForm");
 
 let nome = document.getElementById("nomeCadastro");
@@ -39,6 +42,6 @@ cadastroForm.addEventListener("submit", function(event) {
     console.log(nomeDigitado);
     console.log(emailDigitado);
 
-    alert("Cadastro realizado com sucesso! Seja bem-vinda ao Bereia.");
+    alert("Cadastro validado com sucesso! Seja bem-vinda ao Bereia.");
 
 });
