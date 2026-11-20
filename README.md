@@ -29,7 +29,6 @@ Disponível após cadastro e login.
 - **Capítulo a capítulo:** explicações de cada capítulo, acompanhadas de referências bíblicas.
 - **Conexões bíblicas:** referências a outras passagens que complementam a compreensão do conteúdo.
 - **Etapas de estudo:** organização e acompanhamento das etapas de leitura.
-- **Anotações:** espaço para registrar observações e aprendizados.
 - **Questionários:** atividades para revisar e fixar o conteúdo estudado.
 - **Dashboard:** painel visual com indicadores de progresso, capítulos concluídos, questionários respondidos e desempenho nas atividades.
 
