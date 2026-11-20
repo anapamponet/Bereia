@@ -9,7 +9,7 @@ O **Bereia** é um site de estudo bíblico desenvolvido com o objetivo de aprofu
 
 A plataforma reúne informações históricas, explicações capítulo a capítulo, referências bíblicas e fontes para consulta, oferecendo um ambiente organizado para acompanhar o estudo da Palavra.
 
-O acesso às ferramentas de estudo é realizado mediante cadastro e login. Após entrar na plataforma, o usuário pode consultar os livros disponíveis, registrar suas etapas de estudo, fazer anotações, responder questionários e acompanhar seu desenvolvimento por meio de uma dashboard.
+O acesso às ferramentas de estudo é realizado mediante cadastro e login. Após entrar na plataforma, o usuário pode consultar os livros disponíveis, registrar suas etapas de estudo, responder questionários e acompanhar seu desenvolvimento por meio de uma dashboard.
 
 O nome Bereia tem origem em Atos 17:11, passagem que destaca os moradores de Beréia por examinarem diariamente as Escrituras para verificar aquilo que ouviam.
 
