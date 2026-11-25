@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Caderno de estudo | Bereia</title>
+    <link href="../css/estilo.css" rel="stylesheet" />
+    <script src="../js/sessao.js"></script>
+</head>
+
+<body onload="validarSessao() && abrirLivro()">
+    <header><a aria-label="Bereia" class="brand" href="livros.html"><img alt="Bereia — Examine as Escrituras"
+                src="../imagens/logo.png" /></a>
+        <nav class="nav" id="nav"><a href="livros.html" class="active">Livros</a><a href="questionario.html">Questionários</a><a
+                href="progresso.html">Meu progresso</a></nav>
+        <div class="auth-actions"><span class="auth-user" id="authUser"></span><button class="btn secondary"
+                onclick="limparSessao()">Sair</button></div>
+    </header>
+    <main>
+        <section class="view active">
+            <div class="detail-top"><button class="back" onclick="window.location='livros.html'">← Voltar aos livros</button><span
+                    class="eyebrow">Caderno de estudo</span></div>
+            <div class="detail-layout">
+                <aside class="side-card"><small id="bookGroup"></small>
+                    <h2 class="serif" id="bookName" style="font-size:35px;font-weight:400;margin:12px 0"></h2>
+                    <p id="bookTagline"></p><button class="btn" style="width:100%;margin-top:10px"
+                        onclick="irParaQuestionario()">Revisar conteúdo</button>
+                </aside>
+                <div class="detail-content">
+                    <div class="tabs"><button class="active" onclick="detailTab('contexto',this)">Contexto</button><button
+                            onclick="detailTab('estrutura',this)">Entre capítulos</button><button
+                            onclick="detailTab('conexoes',this)">Conexões bíblicas</button></div>
+                    <div id="detailPanel"></div>
+                    <p class="note">Conteúdo de referência baseado na documentação do projeto. As informações históricas devem
+                        permanecer acompanhadas de suas fontes na versão final do site.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"><span>© 2026 Bereia · Examine as Escrituras</span><span>Um projeto de estudo bíblico com
+            contexto histórico, político e geográfico.</span></footer>
+    <div class="toast" id="toast"></div>
+    <script src="../js/livros-dados.js"></script>
+    <script>
+        let currentBook = books[0];
+
+        function abrirLivro() {
+            let nome = new URLSearchParams(window.location.search).get('livro');
+            currentBook = books.find(b => b.name === nome) || books[0];
+            document.getElementById('bookName').textContent = currentBook.name;
+            document.getElementById('bookGroup').textContent = currentBook.group;
+            document.getElementById('bookTagline').textContent = currentBook.tag;
+            document.title = currentBook.name + ' | Bereia';
+            detailTab('contexto', document.querySelector('.tabs button'));
+        }
+
+        function irParaQuestionario() {
+            window.location = 'questionario.html?livro=' + encodeURIComponent(currentBook.name);
+        }
+
+        function detailTab(tab, btn) {
+            document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            let panel = document.getElementById('detailPanel');
+            if (tab === 'contexto') {
+                panel.innerHTML = `<div class="info-grid"><div class="info"><label>Autor</label><p>${currentBook.author}</p></div><div class="info"><label>Destinatários</label><p>${currentBook.recipients}</p></div><div class="info"><label>Data</label><p>${currentBook.date}</p></div><div class="info"><label>Local</label><p>${currentBook.place}</p></div><div class="info"><label>Cenário político</label><p>${currentBook.political}</p></div><div class="info"><label>Cenário religioso</label><p>${currentBook.religious}</p></div><div class="info full"><label>Contexto histórico</label><p>${currentBook.history}</p></div></div>`
+            } else if (tab === 'estrutura') {
+                panel.innerHTML = `<div class="info full"><label>Contexto entre capítulos</label><p>${currentBook.chapters}</p></div>`
+            } else {
+                panel.innerHTML = `<div class="info full"><label>Referências e conexões com outras partes da Bíblia</label><p>${currentBook.connections}</p></div><p class="note">As conexões ajudam a observar a continuidade da narrativa bíblica e devem ser conferidas diretamente nas passagens indicadas.</p>`
+            }
+        }
+    </script>
+</body>
+
+</html>

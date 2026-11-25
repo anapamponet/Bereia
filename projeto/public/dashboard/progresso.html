@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Meu progresso | Bereia</title>
+    <link href="../css/estilo.css" rel="stylesheet" />
+    <script src="../js/sessao.js"></script>
+</head>
+
+<body onload="validarSessao() && carregarResumo()">
+    <header><a aria-label="Bereia" class="brand" href="livros.html"><img alt="Bereia — Examine as Escrituras"
+                src="../imagens/logo.png" /></a>
+        <nav class="nav" id="nav"><a href="livros.html">Livros</a><a href="questionario.html">Questionários</a><a
+                href="progresso.html" class="active">Meu progresso</a></nav>
+        <div class="auth-actions"><span class="auth-user" id="authUser"></span><button class="btn secondary"
+                onclick="limparSessao()">Sair</button></div>
+    </header>
+    <main>
+        <section class="view active">
+            <div class="page-title">
+                <div class="eyebrow">Constância, não competição</div>
+                <h1>Meu progresso</h1>
+                <p>Um painel para organizar os estudos e acompanhar as atividades. Os indicadores representam o avanço nas
+                    leituras, não a profundidade da fé ou do relacionamento com Deus.</p>
+            </div>
+            <div class="dash-grid">
+                <div class="metric"><strong id="metricBooks">0/9</strong><span>Livros com questionário</span></div>
+                <div class="metric"><strong id="metricQuizzes">0</strong><span>Questionários concluídos</span></div>
+                <div class="metric"><strong id="metricHits">0</strong><span>Questões acertadas</span></div>
+                <div class="metric"><strong id="metricAccuracy">—</strong><span>Acertos nos questionários</span></div>
+            </div>
+            <div class="dash-panels">
+                <div class="panel">
+                    <h3>Acertos por livro</h3>
+                    <div id="progressList"></div>
+                </div>
+                <div class="panel">
+                    <h3>Atividade recente</h3>
+                    <div id="activityList"></div>
+                    <p class="note">Conclua um questionário para atualizar este painel.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"><span>© 2026 Bereia · Examine as Escrituras</span><span>Um projeto de estudo bíblico com
+            contexto histórico, político e geográfico.</span></footer>
+    <div class="toast" id="toast"></div>
+    <script>
+        function carregarResumo() {
+            fetch('/questionarios/resumo/' + sessionStorage.ID_USUARIO)
+                .then(function (resposta) {
+                    if (!resposta.ok) throw new Error('Erro ' + resposta.status);
+                    return resposta.json();
+                })
+                .then(renderDashboard)
+                .catch(function (erro) {
+                    console.log(erro);
+                    document.getElementById('activityList').innerHTML = '<p class="note">Não foi possível carregar seu progresso agora.</p>';
+                });
+        }
+
+        function renderDashboard(d) {
+            let comQuestionario = d.porLivro.filter(l => l.questionarios > 0).length;
+            document.getElementById('metricBooks').textContent = comQuestionario + '/' + d.porLivro.length;
+            document.getElementById('metricQuizzes').textContent = d.questionarios;
+            document.getElementById('metricHits').textContent = d.acertos;
+            document.getElementById('metricAccuracy').textContent = d.aproveitamento === null ? '—' : d.aproveitamento + '%';
+
+            document.getElementById('progressList').innerHTML = d.porLivro.map(l => {
+                let p = l.aproveitamento === null ? 0 : l.aproveitamento;
+                return `<div class="book-progress"><span>${l.nome}</span><div class="bar"><span style="width:${p}%"></span></div><span>${l.aproveitamento === null ? '—' : p + '%'}</span></div>`
+            }).join('');
+
+            document.getElementById('activityList').innerHTML = d.recentes.length ? d.recentes.map(h => {
+                let data = new Date(h.datarealizacao).toLocaleDateString('pt-BR');
+                return `<div class="history"><b>↗</b><div>Questionário concluído · ${h.pontuacao}/${h.totalQuestoes} acertos<br><span style="color:#9a8e82;font-size:10px">${h.livro} · ${data}</span></div></div>`
+            }).join('') : '<p class="note">Suas atividades aparecerão aqui conforme você responder aos questionários.</p>';
+        }
+    </script>
+</body>
+
+</html>

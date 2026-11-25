@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Questionários | Bereia</title>
+    <link href="../css/estilo.css" rel="stylesheet" />
+    <script src="../js/sessao.js"></script>
+</head>
+
+<body onload="validarSessao() && iniciar()">
+    <header><a aria-label="Bereia" class="brand" href="livros.html"><img alt="Bereia — Examine as Escrituras"
+                src="../imagens/logo.png" /></a>
+        <nav class="nav" id="nav"><a href="livros.html">Livros</a><a href="questionario.html" class="active">Questionários</a><a
+                href="progresso.html">Meu progresso</a></nav>
+        <div class="auth-actions"><span class="auth-user" id="authUser"></span><button class="btn secondary"
+                onclick="limparSessao()">Sair</button></div>
+    </header>
+    <main>
+        <section class="view active">
+            <div class="page-title">
+                <div class="eyebrow">Fixe o que estudou</div>
+                <h1>Questionários</h1>
+                <p>Mais do que testar a memória, as perguntas incentivam a voltar ao texto bíblico, comparar passagens e
+                    compreender as conexões entre os livros.</p>
+            </div>
+            <div class="toolbar"><select class="filter" id="quizBook" onchange="resetQuiz()"></select><span class="eyebrow"
+                    id="quizCount">Questão 1 de 3</span></div>
+            <div class="quiz-box">
+                <div class="progressbar"><span id="quizProgress" style="width:0%"></span></div>
+                <h3 id="quizQuestion">Carregando pergunta...</h3>
+                <div id="quizAnswers"></div>
+                <div class="feedback" id="quizFeedback"></div>
+                <button class="btn" id="quizNext" onclick="nextQuestion()" disabled>Próxima pergunta →</button>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"><span>© 2026 Bereia · Examine as Escrituras</span><span>Um projeto de estudo bíblico com
+            contexto histórico, político e geográfico.</span></footer>
+    <div class="toast" id="toast"></div>
+    <script src="../js/livros-dados.js"></script>
+    <script>
+        let quizIndex = 0, quizScore = 0, answered = false, respostasDadas = [], idsLivros = {};
+
+        function iniciar() {
+            // ids dos livros no banco (tabela livro), para gravar a tentativa
+            fetch('/livros/listar').then(r => r.json()).then(lista => {
+                lista.forEach(l => idsLivros[l.nome] = l.id);
+            }).catch(e => console.log(e));
+
+            let s = document.getElementById('quizBook');
+            s.innerHTML = books.map(b => `<option>${b.name}</option>`).join('');
+            let nome = new URLSearchParams(window.location.search).get('livro');
+            s.value = books.some(b => b.name === nome) ? nome : 'Mateus';
+            resetQuiz();
+        }
+
+        function quizItems() {
+            return quiz[document.getElementById('quizBook').value] || [['Qual é o foco principal deste livro no resumo do projeto?', ['Contexto histórico e mensagem apresentada no texto', 'A história do Império Bizantino', 'A organização das festas modernas', 'A geografia atual do Brasil'], 0], ['O estudo contextual considera quais elementos?', ['Somente a data', 'Autor, destinatários, época, local e cenários', 'Apenas o número de capítulos', 'Somente opiniões pessoais'], 1], ['O Bereia substitui a leitura bíblica?', ['Sim', 'Não, ele complementa a leitura', 'Somente nos Evangelhos', 'Somente no Antigo Testamento'], 1]]
+        }
+
+        function resetQuiz() {
+            quizIndex = 0; quizScore = 0; answered = false; respostasDadas = [];
+            document.getElementById('quizNext').onclick = nextQuestion;
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            let items = quizItems(), q = items[quizIndex];
+            document.getElementById('quizCount').textContent = `Questão ${quizIndex + 1} de ${items.length}`;
+            document.getElementById('quizProgress').style.width = (quizIndex / items.length * 100) + '%';
+            document.getElementById('quizQuestion').textContent = q[0];
+            document.getElementById('quizAnswers').innerHTML = q[1].map((a, i) => `<button class="answer" onclick="chooseAnswer(${i})">${String.fromCharCode(65 + i)}. ${a}</button>`).join('');
+            document.getElementById('quizFeedback').textContent = '';
+            document.getElementById('quizNext').disabled = true;
+            document.getElementById('quizNext').textContent = quizIndex === items.length - 1 ? 'Concluir questionário' : 'Próxima pergunta →';
+            answered = false;
+        }
+
+        function chooseAnswer(i) {
+            if (answered) return;
+            answered = true;
+            let q = quizItems()[quizIndex], buttons = [...document.querySelectorAll('.answer')];
+            buttons[i].classList.add('selected');
+            buttons[q[2]].classList.add('correct');
+            let ok = i === q[2];
+            if (ok) quizScore++;
+            respostasDadas.push({ numeroQuestao: quizIndex + 1, alternativa: String.fromCharCode(65 + i), correta: ok });
+            document.getElementById('quizFeedback').textContent = ok ? 'Muito bem! Resposta correta.' : 'Revise a resposta destacada e volte ao conteúdo para conferir.';
+            document.getElementById('quizNext').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (!answered) return;
+            let items = quizItems();
+            if (quizIndex < items.length - 1) {
+                quizIndex++;
+                renderQuestion();
+            } else {
+                concluir(items.length);
+            }
+        }
+
+        function concluir(total) {
+            document.getElementById('quizQuestion').textContent = 'Você concluiu o questionário!';
+            document.getElementById('quizAnswers').innerHTML = `<p class="quote">${quizScore} de ${total} respostas corretas.</p>`;
+            document.getElementById('quizFeedback').textContent = 'Salvando seu resultado...';
+            document.getElementById('quizProgress').style.width = '100%';
+            document.getElementById('quizNext').textContent = 'Refazer questionário';
+            document.getElementById('quizNext').onclick = resetQuiz;
+            document.getElementById('quizNext').disabled = false;
+
+            fetch('/questionarios/registrar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    idUsuarioServer: sessionStorage.ID_USUARIO,
+                    idLivroServer: idsLivros[document.getElementById('quizBook').value],
+                    respostasServer: respostasDadas
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    document.getElementById('quizFeedback').textContent = 'Use as respostas como ponto de partida para voltar às Escrituras e aprofundar o estudo.';
+                    mostrarAviso('Resultado salvo no seu progresso!');
+                } else {
+                    resposta.text().then(t => {
+                        document.getElementById('quizFeedback').textContent = 'Não foi possível salvar o resultado: ' + t;
+                    });
+                }
+            }).catch(function (erro) {
+                console.log(erro);
+                document.getElementById('quizFeedback').textContent = 'Não foi possível conectar ao servidor para salvar o resultado.';
+            });
+        }
+    </script>
+</body>
+
+</html>

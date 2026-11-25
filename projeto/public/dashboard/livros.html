@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Livros | Bereia</title>
+    <link href="../css/estilo.css" rel="stylesheet" />
+    <script src="../js/sessao.js"></script>
+</head>
+
+<body onload="validarSessao() && renderBooks()">
+    <header><a aria-label="Bereia" class="brand" href="livros.html"><img alt="Bereia — Examine as Escrituras"
+                src="../imagens/logo.png" /></a>
+        <nav class="nav" id="nav"><a href="livros.html" class="active">Livros</a><a href="questionario.html">Questionários</a><a
+                href="progresso.html">Meu progresso</a></nav>
+        <div class="auth-actions"><span class="auth-user" id="authUser"></span><button class="btn secondary"
+                onclick="limparSessao()">Sair</button></div>
+    </header>
+    <main>
+        <section class="view active">
+            <div class="page-title">
+                <div class="eyebrow">Biblioteca de estudo</div>
+                <h1>Livros da Bíblia</h1>
+                <p>Explore os nove livros contemplados no projeto. Cada página reúne informações de autoria, destinatários,
+                    época, local, cenário político e religioso, contexto histórico e conexões bíblicas.</p>
+            </div>
+            <div class="toolbar"><input class="search" id="bookSearch" placeholder="Buscar um livro..."
+                    oninput="renderBooks()"><select class="filter" id="bookFilter" onchange="renderBooks()">
+                    <option value="todos">Todos os grupos</option>
+                    <option value="Evangelhos">Evangelhos</option>
+                    <option value="Antigo Testamento">Antigo Testamento</option>
+                    <option value="Cartas">Cartas</option>
+                </select></div>
+            <div class="book-grid" id="allBooks"></div>
+        </section>
+    </main>
+    <footer class="footer"><span>© 2026 Bereia · Examine as Escrituras</span><span>Um projeto de estudo bíblico com
+            contexto histórico, político e geográfico.</span></footer>
+    <div class="toast" id="toast"></div>
+    <script src="../js/livros-dados.js"></script>
+    <script>
+        function card(b, i) {
+            return `<article class="book-card" onclick="window.location='livro.html?livro=${encodeURIComponent(b.name)}'"><span class="book-number">0${i + 1}</span><h3>${b.name}</h3><p>${b.tag}</p><span class="pill">${b.group}</span><span class="arrow">↗</span></article>`
+        }
+
+        function renderBooks() {
+            let q = (document.getElementById('bookSearch').value || '').toLowerCase(),
+                f = document.getElementById('bookFilter').value || 'todos';
+            let list = books.filter(b => (b.name.toLowerCase().includes(q) || b.tag.toLowerCase().includes(q)) && (f === 'todos' || b.group === f));
+            document.getElementById('allBooks').innerHTML = list.map(b => card(b, books.indexOf(b))).join('') || '<p>Nenhum livro encontrado.</p>'
+        }
+    </script>
+</body>
+
+</html>
