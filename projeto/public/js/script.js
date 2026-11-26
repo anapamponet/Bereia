@@ -12,23 +12,21 @@ cadastroForm.addEventListener("submit", function(event) {
     event.preventDefault();
     mensagem.textContent = "";
 
-    if (nome.value == "") {
-        alert("Por favor, informe seu nome.");
-        return;
+    // Laço de repetição: percorre os campos e para no primeiro que estiver vazio
+    let campos = [nome, email, senha];
+    let nomesDosCampos = ["seu nome", "seu e-mail", "sua senha"];
+
+    for (let i = 0; i < campos.length; i++) {
+        if (campos[i].value.trim() == "") {
+            alert("Por favor, informe " + nomesDosCampos[i] + ".");
+            campos[i].focus();
+            return;
+        }
     }
 
-    if (email.value == "") {
-        alert("Por favor, informe seu e-mail.");
-        return;
-    }
 
     if (!email.value.includes("@")) {
         alert("Informe um e-mail válido.");
-        return;
-    }
-
-    if (senha.value == "") {
-        alert("Por favor, informe sua senha.");
         return;
     }
 
